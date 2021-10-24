@@ -37,7 +37,7 @@ export const toResponseError =
   (response: Response) =>
   (error: Error | unknown): ResponseError => ({
     _tag: "RESPONSE_ERROR",
-    error: error instanceof Error ? error : E.toError(error),
+    error: error instanceof Error ? error : E.toError(JSON.stringify(error)),
     response,
   });
 

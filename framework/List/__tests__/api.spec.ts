@@ -1,28 +1,97 @@
-import { getLists } from "..";
-import { server } from "../../mocks/server";
+import { ENDPOINTS, getLists, List } from "..";
+import { server, rest } from "../../mocks/server";
 import { PathReporter } from "io-ts/lib/PathReporter";
 import * as TE from "fp-ts/lib/TaskEither";
+import * as E from "fp-ts/lib/Either";
 import * as T from "fp-ts/lib/Task";
 import { pipe } from "fp-ts/lib/function";
+import { FetchError } from "../../fetch";
 
 describe("List: api", () => {
   beforeAll(() => server.listen());
   afterEach(() => server.resetHandlers());
   afterAll(() => server.close());
 
-  it("works", async () => {
-    await pipe(
-      getLists,
-      TE.fold(
-        (e) => {
-          return T.fromIO(() => console.error(e));
-        },
-        (a) => {
-          return T.fromIO(() => console.log(a));
-        }
-      )
-    )();
+  it("Resolves reddit lists request", async () => {
+    const result = await getLists();
+    const lists = E.getOrElseW((e: FetchError): never => {
+      throw new Error(e.error.message);
+    })(result);
 
-    expect(true).toBe(true);
+    expect(E.isRight(result)).toBeTruthy();
+    expect(lists).toHaveLength(500);
+  });
+
+  describe("Throws error when", () => {
+    it("invalid data provided", async () => {
+      server.use(
+        rest.get(ENDPOINTS.topStories.toString(), async (_req, res, ctx) => {
+          return res(ctx.status(200), ctx.json(["abc"]));
+        })
+      );
+
+      const result = await getLists();
+      const error = E.match(
+        (e: FetchError) => e,
+        (): never => {
+          throw new Error("This should have thrown an error");
+        }
+      )(result);
+
+      expect(E.isLeft(result)).toBeTruthy();
+      expect(error).toMatchInlineSnapshot(`
+Object {
+  "_tag": "DECODING_ERROR",
+  "error": [Error: Invalid value "abc" supplied to : Array<number>/0: number],
+}
+`);
+    });
+
+    it("bad request", async () => {
+      server.use(
+        rest.get(ENDPOINTS.topStories.toString(), async (_req, res, ctx) => {
+          return res(
+            ctx.status(500),
+            ctx.json({ error: "The server went on vacation" })
+          );
+        })
+      );
+
+      const result = await getLists();
+      const error = E.match(
+        (e: FetchError) => e,
+        (): never => {
+          throw new Error("This should have thrown an error");
+        }
+      )(result);
+
+      expect(E.isLeft(result)).toBeTruthy();
+      expect(error._tag).toMatchInlineSnapshot(`"RESPONSE_ERROR"`);
+      expect(error.error.message).toMatchInlineSnapshot(
+        `"{\\"error\\":\\"The server went on vacation\\"}"`
+      );
+    });
+
+    it("offline", async () => {
+      server.use(
+        rest.get(ENDPOINTS.topStories.toString(), async (_req, res, ctx) => {
+          return res.networkError("User is offline");
+        })
+      );
+
+      const result = await getLists();
+      const error = E.match(
+        (e: FetchError) => e,
+        (): never => {
+          throw new Error("This should have thrown an error");
+        }
+      )(result);
+
+      expect(E.isLeft(result)).toBeTruthy();
+      expect(error._tag).toMatchInlineSnapshot(`"NETWORK_ERROR"`);
+      expect(error.error.message).toMatchInlineSnapshot(
+        `"request to https://hacker-news.firebaseio.com/v0/topstories.json failed, reason: User is offline"`
+      );
+    });
   });
 });

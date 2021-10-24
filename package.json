@@ -26,11 +26,13 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
+    "@types/faker": "^5.5.9",
     "@types/jest": "^27.0.2",
     "@types/react": "17.0.31",
     "babel-jest": "^27.3.1",
     "eslint": "8.0.1",
     "eslint-config-next": "11.1.2",
+    "faker": "^5.5.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
     "msw": "^0.35.0",
