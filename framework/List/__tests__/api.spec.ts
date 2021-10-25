@@ -1,10 +1,6 @@
 import { ENDPOINTS, getLists, List } from "..";
 import { server, rest } from "../../mocks/server";
-import { PathReporter } from "io-ts/lib/PathReporter";
-import * as TE from "fp-ts/lib/TaskEither";
 import * as E from "fp-ts/lib/Either";
-import * as T from "fp-ts/lib/Task";
-import { pipe } from "fp-ts/lib/function";
 import { FetchError } from "../../fetch";
 
 describe("List: api", () => {

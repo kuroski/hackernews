@@ -1,7 +1,7 @@
 import { flow, pipe } from "fp-ts/lib/function";
 import * as TE from "fp-ts/lib/TaskEither";
 import * as E from "fp-ts/lib/Either";
-import * as List from "./List";
+import { TList, fromTList } from "./List";
 import customFetch, { toDecodingError } from "../fetch";
 
 export const ENDPOINTS: Record<string, URL> = {
@@ -10,6 +10,6 @@ export const ENDPOINTS: Record<string, URL> = {
 
 export const getLists = pipe(
   ENDPOINTS.topStories,
-  customFetch(List.TList),
-  TE.chain(flow(List.fromTList, E.mapLeft(toDecodingError), TE.fromEither))
+  customFetch(TList),
+  TE.chain(flow(fromTList, E.mapLeft(toDecodingError), TE.fromEither))
 );

@@ -14,7 +14,7 @@ export type NetworkError = {
   _tag: "NETWORK_ERROR";
   error: Error;
 };
-export const toNetworkError = (error: unknown | Error): NetworkError => ({
+export const toNetworkError = (error: unknown | Error): FetchError => ({
   _tag: "NETWORK_ERROR",
   error: error instanceof Error ? error : E.toError(error),
 });
@@ -23,7 +23,7 @@ export type ParserError = {
   _tag: "PARSER_ERROR";
   error: Error;
 };
-export const toParserError = (error: unknown | Error): ParserError => ({
+export const toParserError = (error: unknown | Error): FetchError => ({
   _tag: "PARSER_ERROR",
   error: error instanceof Error ? error : E.toError(error),
 });
@@ -35,7 +35,7 @@ export type ResponseError = {
 };
 export const toResponseError =
   (response: Response) =>
-  (error: Error | unknown): ResponseError => ({
+  (error: Error | unknown): FetchError => ({
     _tag: "RESPONSE_ERROR",
     error: error instanceof Error ? error : E.toError(JSON.stringify(error)),
     response,
@@ -56,7 +56,7 @@ export type NotFound = {
   _tag: "NOT_FOUND";
   error: Error;
 };
-export const toNotFound = (error: unknown | Error): NotFound => ({
+export const toNotFound = (error: unknown | Error): FetchError => ({
   _tag: "NOT_FOUND",
   error: error instanceof Error ? error : E.toError(error),
 });
