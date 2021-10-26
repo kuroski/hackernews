@@ -1,4 +1,4 @@
-import { ENDPOINTS, getLists, List } from "..";
+import { ENDPOINTS, getLists } from "..";
 import * as E from "fp-ts/lib/Either";
 import { server, rest } from "@framework/mocks/server";
 import { FetchError } from "@framework/fetch";

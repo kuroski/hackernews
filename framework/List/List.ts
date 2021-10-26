@@ -12,7 +12,7 @@ export const ListId = t.brand(
 );
 export type ListId = t.TypeOf<typeof ListId>;
 
-export const List = t.readonlyArray(ListId);
+const List = t.readonlyArray(ListId);
 export type List = t.TypeOf<typeof List>;
 
 // #region Api response data type

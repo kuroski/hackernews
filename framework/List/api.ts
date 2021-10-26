@@ -1,5 +1,5 @@
 import { pipe } from "fp-ts/lib/function";
-import { TList, fromTList } from "./List";
+import { TList, fromTList } from "@framework/List";
 import customFetch, { mapTDecoded } from "@framework/fetch";
 
 export const ENDPOINTS: Record<string, URL> = {
