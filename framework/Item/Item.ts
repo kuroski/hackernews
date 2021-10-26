@@ -1,6 +1,6 @@
 import { brand, Branded, Int, TypeOf } from "io-ts";
 
-export interface ItemIdBrand {
+interface ItemIdBrand {
   readonly ItemId: unique symbol;
 }
 
