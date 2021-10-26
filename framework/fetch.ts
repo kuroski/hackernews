@@ -8,7 +8,7 @@ import { ValidationError } from "io-ts";
 import { failure } from "io-ts/lib/PathReporter";
 import { flow, pipe } from "fp-ts/lib/function";
 
-/** Error handling */
+// #region Error handling
 
 export type NetworkError = {
   _tag: "NETWORK_ERROR";
@@ -68,7 +68,9 @@ export type FetchError =
   | DecodingError
   | NotFound;
 
-/** Request handling */
+// #endregion
+
+// #region Request handling
 
 function onSuccess<T>(response: Response): TE.TaskEither<FetchError, T> {
   return TE.tryCatch(() => response.json(), toParserError);
@@ -97,6 +99,10 @@ const customFetch = <Codec>(decoder: t.Type<Codec>) => {
     );
 };
 
+// #endregion
+
+// #region Operators
+
 /**
  * Maps a decoded response into another decoded
  * This function is useful when your API response
@@ -108,5 +114,6 @@ export const mapTDecoded = <T, R>(
   TE.chain<FetchError, T, R>(
     flow(transformFn, E.mapLeft(toDecodingError), TE.fromEither)
   );
+// #endregion
 
 export default customFetch;
