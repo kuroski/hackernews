@@ -97,4 +97,16 @@ const customFetch = <Codec>(decoder: t.Type<Codec>) => {
     );
 };
 
+/**
+ * Maps a decoded response into another decoded
+ * This function is useful when your API response
+ * is different from what you want to use in your application
+ */
+export const mapTDecoded = <T, R>(
+  transformFn: (tcodec: T) => E.Either<t.Errors, R>
+) =>
+  TE.chain<FetchError, T, R>(
+    flow(transformFn, E.mapLeft(toDecodingError), TE.fromEither)
+  );
+
 export default customFetch;

@@ -70,7 +70,7 @@ Object {
 
     it("offline", async () => {
       server.use(
-        rest.get(ENDPOINTS.topStories.toString(), async (_req, res, ctx) => {
+        rest.get(ENDPOINTS.topStories.toString(), async (_req, res) => {
           return res.networkError("User is offline");
         })
       );
