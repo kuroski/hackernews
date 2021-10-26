@@ -1,7 +1,7 @@
 import { ENDPOINTS, getLists, List } from "..";
-import { server, rest } from "../../mocks/server";
 import * as E from "fp-ts/lib/Either";
-import { FetchError } from "../../fetch";
+import { server, rest } from "@framework/mocks/server";
+import { FetchError } from "@framework/fetch";
 
 describe("List: api", () => {
   beforeAll(() => server.listen());

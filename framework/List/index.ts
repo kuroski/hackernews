@@ -1,2 +1,2 @@
-export * from "./List";
-export * from "./api";
+export * from "@framework/List/List";
+export * from "@framework/List/api";

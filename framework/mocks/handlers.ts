@@ -1,6 +1,6 @@
 import { rest } from "msw";
 import faker from "faker";
-import { ENDPOINTS } from "../List";
+import { ENDPOINTS } from "@framework/List";
 
 export const handlers = [
   rest.get(ENDPOINTS.topStories.toString(), (_req, res, ctx) => {
