@@ -5,7 +5,7 @@ interface ListIdBrand {
   readonly ListId: unique symbol;
 }
 
-export const ListId = t.brand(
+const ListId = t.brand(
   t.Int,
   (id: t.Int): id is t.Branded<t.Int, ListIdBrand> => id >= 0,
   "ListId"
@@ -17,10 +17,17 @@ export type List = t.TypeOf<typeof List>;
 
 // #region Api response data type
 
-export const TList = t.array(t.number);
+export const TListItem = t.number;
+export type TListItem = t.TypeOf<typeof TListItem>;
+
+export const TList = t.array(TListItem);
 export type TList = t.TypeOf<typeof TList>;
 
-export const fromTList = (tlist: TList): E.Either<t.Errors, List> =>
+export const fromTListItem = (
+  tlistItem: TListItem
+): E.Either<t.Errors, ListId> => ListId.decode(tlistItem);
+
+export const fromTList = (tlist: TListItem): E.Either<t.Errors, List> =>
   List.decode(tlist);
 
 //#endregion

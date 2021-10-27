@@ -18,6 +18,7 @@ specifiers:
   fp-ts-std: ^0.11.0
   identity-obj-proxy: ^3.0.0
   io-ts: ^2.2.16
+  io-ts-types: ^0.5.16
   jest: ^27.3.1
   monocle-ts: ^2.3.11
   msw: ^0.35.0
@@ -30,13 +31,14 @@ specifiers:
   typescript: 4.4.4
 
 dependencies:
-  '@devexperts/remote-data-ts': 2.1.1_fp-ts@2.11.5+io-ts@2.2.16
+  '@devexperts/remote-data-ts': 2.1.1_e352aea97f3c5670dbf71f19aff2d59f
   cross-fetch: 3.1.4
   fluture: 14.0.0
   fp-ts: 2.11.5
   fp-ts-fluture: 0.6.5_fluture@14.0.0+fp-ts@2.11.5
   fp-ts-std: 0.11.0_50a6581151532ce6bcd6fd7747a52619
   io-ts: 2.2.16_fp-ts@2.11.5
+  io-ts-types: 0.5.16_a7ce90bb026b614dfd322f703c6b36ca
   monocle-ts: 2.3.11_fp-ts@2.11.5
   newtype-ts: 0.3.4_fp-ts@2.11.5+monocle-ts@2.3.11
   next: 11.1.2_8e3522129ef2816b3c737f17aecb3a9d
@@ -553,7 +555,7 @@ packages:
       '@cspotcode/source-map-consumer': 0.8.0
     dev: true
 
-  /@devexperts/remote-data-ts/2.1.1_fp-ts@2.11.5+io-ts@2.2.16:
+  /@devexperts/remote-data-ts/2.1.1_e352aea97f3c5670dbf71f19aff2d59f:
     resolution: {integrity: sha512-z0RblCmeQjYt0vM1g1qR2SzHM1FXZXpBEzokYAojN8n4yC2jIInngeggmqPTOZna2+i7HInDoDm0CGK50W7Llg==}
     peerDependencies:
       fp-ts: ^2.0.0
@@ -562,6 +564,7 @@ packages:
     dependencies:
       fp-ts: 2.11.5
       io-ts: 2.2.16_fp-ts@2.11.5
+      io-ts-types: 0.5.16_a7ce90bb026b614dfd322f703c6b36ca
     dev: false
 
   /@eslint/eslintrc/1.0.3:
@@ -3129,6 +3132,20 @@ packages:
       get-intrinsic: 1.1.1
       has: 1.0.3
       side-channel: 1.0.4
+
+  /io-ts-types/0.5.16_a7ce90bb026b614dfd322f703c6b36ca:
+    resolution: {integrity: sha512-h9noYVfY9rlbmKI902SJdnV/06jgiT2chxG6lYDxaYNp88HscPi+SBCtmcU+m0E7WT5QSwt7sIMj93+qu0FEwQ==}
+    peerDependencies:
+      fp-ts: ^2.0.0
+      io-ts: ^2.0.0
+      monocle-ts: ^2.0.0
+      newtype-ts: ^0.3.2
+    dependencies:
+      fp-ts: 2.11.5
+      io-ts: 2.2.16_fp-ts@2.11.5
+      monocle-ts: 2.3.11_fp-ts@2.11.5
+      newtype-ts: 0.3.4_fp-ts@2.11.5+monocle-ts@2.3.11
+    dev: false
 
   /io-ts/2.2.16_fp-ts@2.11.5:
     resolution: {integrity: sha512-y5TTSa6VP6le0hhmIyN0dqEXkrZeJLeC5KApJq6VLci3UEKF80lZ+KuoUs02RhBxNWlrqSNxzfI7otLX1Euv8Q==}
