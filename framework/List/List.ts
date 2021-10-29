@@ -27,7 +27,7 @@ export const fromTListItem = (
   tlistItem: TListItem
 ): E.Either<t.Errors, ListId> => ListId.decode(tlistItem);
 
-export const fromTList = (tlist: TListItem): E.Either<t.Errors, List> =>
+export const fromTList = (tlist: TList): E.Either<t.Errors, List> =>
   List.decode(tlist);
 
 //#endregion

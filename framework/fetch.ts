@@ -4,7 +4,6 @@ import * as t from "io-ts";
 import * as E from "fp-ts/lib/Either";
 import * as TE from "fp-ts/lib/TaskEither";
 
-import { ValidationError } from "io-ts";
 import { failure } from "io-ts/lib/PathReporter";
 import { flow, pipe } from "fp-ts/lib/function";
 
@@ -46,7 +45,7 @@ export type DecodingError = {
   error: Error;
 };
 export const toDecodingError = (
-  error: ValidationError[] | Error
+  error: t.ValidationError[] | Error
 ): FetchError => ({
   _tag: "DECODING_ERROR",
   error: error instanceof Error ? error : new Error(failure(error).join("\n")),
@@ -87,9 +86,9 @@ function onFailure(response: Response): TE.TaskEither<FetchError, never> {
 }
 
 const customFetch = <Codec>(decoder: t.Type<Codec>) => {
-  return (url: URL, init?: RequestInit): TE.TaskEither<FetchError, Codec> =>
+  return (request: URL, init?: RequestInit): TE.TaskEither<FetchError, Codec> =>
     pipe(
-      TE.tryCatch(() => crossFetch(url.toString(), init), toNetworkError),
+      TE.tryCatch(() => crossFetch(request.toString(), init), toNetworkError),
       TE.chain((response: Response) =>
         response.ok ? onSuccess(response) : onFailure(response)
       ),
