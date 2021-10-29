@@ -4,16 +4,16 @@ import { ENDPOINTS as LIST_ENDPOINTS } from "@framework/List";
 import { ENDPOINTS as ITEM_ENDPOINTS } from "@framework/Item";
 
 export const handlers = [
-  rest.get(LIST_ENDPOINTS.topStories.toString(), (_req, res, ctx) => {
-    return res(
+  rest.get(LIST_ENDPOINTS.topStories.toString(), (_req, res, ctx) =>
+    res(
       ctx.status(200),
       ctx.json([...Array(500)].map(() => Number(faker.finance.account(8))))
-    );
-  }),
+    )
+  ),
   rest.get(
     `https://hacker-news.firebaseio.com/v0/item/:storyId.json`,
-    (_req, res, ctx) => {
-      return res(
+    (_req, res, ctx) =>
+      res(
         ctx.status(200),
         ctx.json({
           by: "dhouston",
@@ -30,7 +30,6 @@ export const handlers = [
           type: "story",
           url: "http://www.getdropbox.com/u/2/screencast.html",
         })
-      );
-    }
+      )
   ),
 ];

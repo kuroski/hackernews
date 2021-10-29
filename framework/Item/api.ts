@@ -1,6 +1,7 @@
 import { pipe } from "fp-ts/lib/function";
+import * as TE from "fp-ts/lib/TaskEither";
 import { TList, fromTList, ListId } from "@framework/List";
-import customFetch, { mapTDecoded } from "@framework/fetch";
+import customFetch, { FetchError, mapTDecoded } from "@framework/fetch";
 import { TItemStory } from ".";
 
 export const ENDPOINTS = {
@@ -8,5 +9,5 @@ export const ENDPOINTS = {
     new URL(`https://hacker-news.firebaseio.com/v0/item/${id.toString()}.json`),
 };
 
-export const getStory = (id: ListId) =>
+export const getStory = (id: ListId): TE.TaskEither<FetchError, TItemStory> =>
   pipe(id, ENDPOINTS.story, customFetch(TItemStory));

@@ -27,7 +27,6 @@ export type ItemStory = {
   readonly _tag: "ItemStory";
   readonly id: ItemId;
   readonly title: O.Option<string>;
-  readonly text: string | undefined;
   readonly url: URL | undefined;
 };
 
@@ -35,10 +34,9 @@ export type Item = ItemStory;
 
 // #region Api response data type
 
-export const TItemStory = t.type({
+export const TItemStory = t.strict({
   id: t.number,
   title: t.string,
-  text: t.string,
   url: t.string,
 });
 export type TItemStory = t.TypeOf<typeof TItemStory>;

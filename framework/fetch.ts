@@ -44,9 +44,7 @@ export type DecodingError = {
   _tag: "DECODING_ERROR";
   error: Error;
 };
-export const toDecodingError = (
-  error: t.ValidationError[] | Error
-): FetchError => ({
+export const toDecodingError = (error: t.Errors | Error): FetchError => ({
   _tag: "DECODING_ERROR",
   error: error instanceof Error ? error : new Error(failure(error).join("\n")),
 });
@@ -107,7 +105,7 @@ const customFetch = <Codec>(decoder: t.Type<Codec>) => {
  * This function is useful when your API response
  * is different from what you want to use in your application
  */
-export const mapTDecoded = <T, R>(
+export const mapTDecoded = <T extends t.Type<unknown, unknown>, R>(
   transformFn: (tcodec: T) => E.Either<t.Errors, R>
 ) =>
   TE.chain<FetchError, T, R>(

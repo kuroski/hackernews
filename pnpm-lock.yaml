@@ -24,6 +24,7 @@ specifiers:
   msw: ^0.35.0
   newtype-ts: ^0.3.4
   next: 11.1.2
+  pattern-matching-ts: ^2.0.0
   react: 17.0.2
   react-dom: 17.0.2
   react-test-renderer: ^17.0.2
@@ -42,6 +43,7 @@ dependencies:
   monocle-ts: 2.3.11_fp-ts@2.11.5
   newtype-ts: 0.3.4_fp-ts@2.11.5+monocle-ts@2.3.11
   next: 11.1.2_8e3522129ef2816b3c737f17aecb3a9d
+  pattern-matching-ts: 2.0.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
 
@@ -4600,6 +4602,10 @@ packages:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
     dev: true
+
+  /pattern-matching-ts/2.0.0:
+    resolution: {integrity: sha512-XfNA/wZ1A92Ps+jzlmFKXviAI6YQt98GwZoHVAsDEMOKYo+g5aSjvMQ3lnvYQskIYdBj30r7S4rAx/VzuxsRhA==}
+    dev: false
 
   /pbkdf2/3.1.2:
     resolution: {integrity: sha512-iuh7L6jA7JEGu2WxDwtQP1ddOpaJNC4KlDEFfdQajSGgGPNi4OyDc2R7QnbY2bR9QjBVGwgvTdNJZoE7RaxUMA==}
