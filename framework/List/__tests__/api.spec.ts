@@ -4,10 +4,6 @@ import { server, rest } from "@framework/mocks/server";
 import { FetchError } from "@framework/fetch";
 
 describe("List: api", () => {
-  beforeAll(() => server.listen());
-  afterEach(() => server.resetHandlers());
-  afterAll(() => server.close());
-
   it("Resolves reddit lists request", async () => {
     const result = await getLists();
     const lists = E.getOrElseW((e: FetchError): never => {
