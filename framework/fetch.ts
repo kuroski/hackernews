@@ -105,7 +105,7 @@ const customFetch = <Codec>(decoder: t.Type<Codec>) => {
  * This function is useful when your API response
  * is different from what you want to use in your application
  */
-export const mapTDecoded = <T extends t.Type<unknown, unknown>, R>(
+export const mapTDecoded = <T, R>(
   transformFn: (tcodec: T) => E.Either<t.Errors, R>
 ) =>
   TE.chain<FetchError, T, R>(

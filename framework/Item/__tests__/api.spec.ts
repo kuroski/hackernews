@@ -1,8 +1,8 @@
-import { ENDPOINTS, getStory, TItemStory } from "..";
+import { getStory, TItemStory } from "..";
 import * as E from "fp-ts/lib/Either";
 import * as TE from "fp-ts/lib/TaskEither";
 import { FetchError, toDecodingError } from "@framework/fetch";
-import { fromTListItem, ListId, TListItem } from "@framework/List";
+import { fromTListItem, TListItem } from "@framework/List";
 import { pipe } from "fp-ts/lib/function";
 
 describe("Item: api", () => {
