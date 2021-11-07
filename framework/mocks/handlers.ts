@@ -10,14 +10,14 @@ export const handlers = [
     )
   ),
   rest.get(
-    `https://hacker-news.firebaseio.com/v0/item/:storyId.json`,
-    (_req, res, ctx) =>
+    "https://hacker-news.firebaseio.com/v0/item/:storyId.json",
+    (req, res, ctx) =>
       res(
         ctx.status(200),
         ctx.json({
           by: "dhouston",
           descendants: 71,
-          id: 8863,
+          id: Number(req.params.storyId),
           kids: [
             8952, 9224, 8917, 8884, 8887, 8943, 8869, 8958, 9005, 9671, 8940,
             9067, 8908, 9055, 8865, 8881, 8872, 8873, 8955, 10403, 8903, 8928,
@@ -25,7 +25,7 @@ export const handlers = [
           ],
           score: 111,
           time: 1175714200,
-          title: "My YC app: Dropbox - Throw away your USB drive",
+          title: faker.lorem.paragraph(),
           type: "story",
           url: "http://www.getdropbox.com/u/2/screencast.html",
         })

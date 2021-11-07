@@ -1,6 +1,7 @@
 import * as t from "io-ts";
 import * as tt from "io-ts-types";
 import * as O from "fp-ts/lib/Option";
+import * as E from "fp-ts/Either";
 import { URLCodec } from "@framework/codecs";
 
 interface ItemIdBrand {
@@ -19,16 +20,11 @@ const ItemStory = t.type({
   _tag: t.literal("ItemStory"),
   id: t.readonly(ItemId),
   title: t.readonly(tt.optionFromNullable(t.string)),
-  text: t.readonly(tt.optionFromNullable(t.string)),
+  // text: t.readonly(tt.optionFromNullable(t.string)),
   url: t.readonly(URLCodec),
 });
 
-export type ItemStory = {
-  readonly _tag: "ItemStory";
-  readonly id: ItemId;
-  readonly title: O.Option<string>;
-  readonly url: URL | undefined;
-};
+export type ItemStory = t.TypeOf<typeof ItemStory>;
 
 export type Item = ItemStory;
 
@@ -40,5 +36,14 @@ export const TItemStory = t.strict({
   url: t.string,
 });
 export type TItemStory = t.TypeOf<typeof TItemStory>;
+
+export const fromTItemStory = (
+  tlistItem: TItemStory
+): E.Either<t.Errors, ItemStory> => {
+  return ItemStory.decode({
+    _tag: "ItemStory",
+    ...tlistItem,
+  });
+};
 
 //#endregion

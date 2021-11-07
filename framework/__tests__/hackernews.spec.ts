@@ -7,20 +7,24 @@ import * as ROR from "fp-ts/lib/ReadonlyRecord";
 
 describe("hackernews API", () => {
   it("lists the best stories", async () => {
-    const result = await pipe(
+    const [items, next] = await pipe(
       topStories(),
       TE.foldW(
         (e) => {
-          error(e);
+          error(e)();
           // return T.of(ROR.empty);
-          return T.of(absurd);
+          return T.never;
         },
         (a) => {
-          log(a);
           return T.of(a);
         }
       )
     )();
+
+    console.log(items);
+
+    const b = await next();
+    console.log("=====", b[0]);
 
     expect(true).toBe(true);
   });
