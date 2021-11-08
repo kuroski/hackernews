@@ -2,7 +2,7 @@ import * as t from "io-ts";
 import * as tt from "io-ts-types";
 import * as O from "fp-ts/lib/Option";
 import * as E from "fp-ts/Either";
-import { URLCodec } from "@framework/codecs";
+import { URLFromString } from "@framework/codecs";
 
 interface ItemIdBrand {
   readonly ItemId: unique symbol;
@@ -21,7 +21,7 @@ const ItemStory = t.type({
   id: t.readonly(ItemId),
   title: t.readonly(tt.optionFromNullable(t.string)),
   // text: t.readonly(tt.optionFromNullable(t.string)),
-  url: t.readonly(URLCodec),
+  url: t.readonly(URLFromString),
 });
 
 export type ItemStory = t.TypeOf<typeof ItemStory>;

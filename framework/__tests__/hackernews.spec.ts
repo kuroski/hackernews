@@ -21,10 +21,10 @@ describe("hackernews API", () => {
       )
     )();
 
-    console.log(items);
+    // console.log(items);
 
     const b = await next();
-    console.log("=====", b[0]);
+    // console.log("=====", b[0]);
 
     expect(true).toBe(true);
   });
