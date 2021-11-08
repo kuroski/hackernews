@@ -12,7 +12,6 @@ describe("hackernews API", () => {
       TE.foldW(
         (e) => {
           error(e)();
-          // return T.of(ROR.empty);
           return T.never;
         },
         (a) => {
@@ -21,10 +20,12 @@ describe("hackernews API", () => {
       )
     )();
 
-    // console.log(items);
+    const result = await items();
 
-    const b = await next();
-    // console.log("=====", b[0]);
+    console.log(result);
+
+    const b = next();
+    console.log("=====", await b[0]());
 
     expect(true).toBe(true);
   });
