@@ -15,6 +15,8 @@ export type ListId = t.TypeOf<typeof ListId>;
 const List = t.readonlyArray(ListId);
 export type List = t.TypeOf<typeof List>;
 
+export const empty: List = [];
+
 // #region Api response data type
 
 export const TListItem = t.number;
