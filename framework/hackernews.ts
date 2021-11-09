@@ -8,16 +8,14 @@ import { getStory, ItemStory } from "./Item";
 import { error } from "fp-ts/lib/Console";
 
 export const topStories = (pageSize = 20) => {
-  function tailFn(lists: L.List, itemsAcc: T.Task<readonly ItemStory[]>) {
+  function tailFn(lists: L.List, itemsAcc: readonly ItemStory[]) {
     const [items, remainingList] = pipe(
       lists,
       ROA.splitAt(pageSize),
       ROT.mapFst((pageListIds) =>
         pipe(
           TE.sequenceArray(pageListIds.map(getStory)),
-          TE.chain((items) =>
-            pipe(itemsAcc, T.map(ROA.concat(items)), TE.fromTask)
-          ),
+          TE.map((items) => pipe(itemsAcc, ROA.concat(items))),
           TE.fold((e) => {
             error(e)();
             return T.of(ROA.empty);
@@ -26,7 +24,10 @@ export const topStories = (pageSize = 20) => {
       )
     );
 
-    return [items, () => tailFn(remainingList, items)] as const;
+    return pipe(
+      items,
+      T.map((result) => [result, () => tailFn(remainingList, result)] as const)
+    );
   }
 
   return pipe(
@@ -35,12 +36,6 @@ export const topStories = (pageSize = 20) => {
       error(e)();
       return T.of(L.empty);
     }, T.of),
-    T.map((lists) => tailFn(lists, T.of(ROA.empty))),
-    T.chain(([items, next]) =>
-      pipe(
-        items,
-        T.map((result) => [result, next] as const)
-      )
-    )
+    T.chain((lists) => tailFn(lists, ROA.empty))
   );
 };
