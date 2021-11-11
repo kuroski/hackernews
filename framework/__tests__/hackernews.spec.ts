@@ -5,7 +5,7 @@ import * as TE from "fp-ts/lib/TaskEither";
 import { server } from "@framework/mocks/server";
 import { rest } from "msw";
 import { ENDPOINTS } from "@framework/List";
-import { error, log } from "fp-ts/lib/Console";
+import { fetchErrorToString } from "@framework/fetch";
 
 describe("hackernews API", () => {
   it("lists the best stories", (done) => {
@@ -76,7 +76,7 @@ Array [
     )();
   });
 
-  it("lists the best stories", (done) => {
+  it("handles stories fetch errors", (done) => {
     server.use(
       rest.get(ENDPOINTS.topStories.toString(), (_req, res, ctx) => {
         return res(ctx.status(200), ctx.json([76686866, 67829238]));
@@ -95,15 +95,13 @@ Array [
     pipe(
       topStories(1),
       TE.fold(
-        (e) => {
-          return T.of(error(e));
-        },
-        (a) => {
-          return T.of(log(a));
-        }
+        (error) => T.of(fetchErrorToString(error)),
+        () => T.never
       ),
-      T.map((r) => {
-        r();
+      T.map((errorMessage) => {
+        expect(errorMessage).toMatchInlineSnapshot(
+          `"{\\"error\\":\\"The server went on vacation\\"}"`
+        );
         return done();
       })
     )();
