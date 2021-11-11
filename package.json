@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "next:dev": "next dev next",
+    "next:build": "next build next",
+    "next:start": "next start next",
+    "next:lint": "next lint next",
     "test": "jest --watchAll",
     "test:ci": "jest --ci"
   },
