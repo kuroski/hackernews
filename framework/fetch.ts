@@ -58,6 +58,9 @@ export const toNotFound = (error: unknown | Error): FetchError => ({
   error: error instanceof Error ? error : E.toError(error),
 });
 
+export const fetchErrorToString = (error: FetchError): string =>
+  error.error.message;
+
 export type FetchError =
   | NetworkError
   | ParserError
