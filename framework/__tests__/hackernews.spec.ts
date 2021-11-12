@@ -6,26 +6,21 @@ import { server } from "@framework/mocks/server";
 import { rest } from "msw";
 import { ENDPOINTS } from "@framework/List";
 import { fetchErrorToString } from "@framework/fetch";
+import {
+  mockBadItemRequest,
+  mockSuccessItemRequest,
+  mockSuccessListRequest,
+} from "@framework/mocks/handlers";
 
 describe("hackernews API", () => {
   it("lists the best stories", (done) => {
     server.use(
-      rest.get(ENDPOINTS.topStories.toString(), (_req, res, ctx) => {
-        return res(ctx.status(200), ctx.json([76686866, 67829238]));
-      }),
-      rest.get(
-        "https://hacker-news.firebaseio.com/v0/item/:storyId.json",
-        (req, res, ctx) => {
-          return res(
-            ctx.status(200),
-            ctx.json({
-              id: Number(req.params.storyId),
-              title: `My story ${req.params.storyId}`,
-              url: `http://my-url.com?storyId=${req.params.storyId}`,
-            })
-          );
-        }
-      )
+      mockSuccessListRequest((_req) => [76686866, 67829238]),
+      mockSuccessItemRequest((req) => ({
+        id: Number(req.params.storyId),
+        title: `My story ${req.params.storyId}`,
+        url: `http://my-url.com?storyId=${req.params.storyId}`,
+      }))
     );
 
     pipe(
@@ -78,18 +73,8 @@ Array [
 
   it("handles stories fetch errors", (done) => {
     server.use(
-      rest.get(ENDPOINTS.topStories.toString(), (_req, res, ctx) => {
-        return res(ctx.status(200), ctx.json([76686866, 67829238]));
-      }),
-      rest.get(
-        "https://hacker-news.firebaseio.com/v0/item/:storyId.json",
-        (req, res, ctx) => {
-          return res(
-            ctx.status(500),
-            ctx.json({ error: "The server went on vacation" })
-          );
-        }
-      )
+      mockSuccessListRequest((_req) => [76686866, 67829238]),
+      mockBadItemRequest
     );
 
     pipe(

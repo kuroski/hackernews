@@ -2,6 +2,10 @@ import { ENDPOINTS, getLists } from "..";
 import * as E from "fp-ts/lib/Either";
 import { server, rest } from "@framework/mocks/server";
 import { FetchError } from "@framework/fetch";
+import {
+  mockBadListRequest,
+  mockInvalidListRequest,
+} from "@framework/mocks/handlers";
 
 describe("List: api", () => {
   it("Resolves reddit lists request", async () => {
@@ -16,11 +20,7 @@ describe("List: api", () => {
 
   describe("Throws error when", () => {
     it("invalid data provided", async () => {
-      server.use(
-        rest.get(ENDPOINTS.topStories.toString(), async (_req, res, ctx) => {
-          return res(ctx.status(200), ctx.json(["abc"]));
-        })
-      );
+      server.use(mockInvalidListRequest);
 
       const result = await getLists();
       const error = E.match(
@@ -40,14 +40,7 @@ Object {
     });
 
     it("bad request", async () => {
-      server.use(
-        rest.get(ENDPOINTS.topStories.toString(), async (_req, res, ctx) => {
-          return res(
-            ctx.status(500),
-            ctx.json({ error: "The server went on vacation" })
-          );
-        })
-      );
+      server.use(mockBadListRequest);
 
       const result = await getLists();
       const error = E.match(
