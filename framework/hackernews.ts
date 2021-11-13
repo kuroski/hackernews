@@ -3,16 +3,16 @@ import * as TE from "fp-ts/lib/TaskEither";
 import * as ROA from "fp-ts/lib/ReadonlyArray";
 import * as ROT from "fp-ts/lib/ReadonlyTuple";
 import * as L from "./List";
-import { getStory, ItemStory } from "./Item";
+import { getStory, Item } from "./Item";
 import { FetchError } from "./fetch";
 
-export type TailFn = TE.TaskEither<
+export type LoadList = TE.TaskEither<
   FetchError,
-  readonly [readonly ItemStory[], () => TailFn]
+  readonly [readonly Item[], () => LoadList]
 >;
 
 export const topStories = (pageSize = 20) => {
-  function tailFn(lists: L.List, itemsAcc: readonly ItemStory[]) {
+  function loadList(lists: L.List, itemsAcc: readonly Item[]) {
     const [items, remainingList] = pipe(
       lists,
       ROA.splitAt(pageSize),
@@ -28,13 +28,13 @@ export const topStories = (pageSize = 20) => {
       items,
       TE.map(
         (result) =>
-          [result, (): TailFn => tailFn(remainingList, result)] as const
+          [result, (): LoadList => loadList(remainingList, result)] as const
       )
     );
   }
 
   return pipe(
     L.getLists,
-    TE.chain((lists) => tailFn(lists, ROA.empty))
+    TE.chain((lists) => loadList(lists, ROA.empty))
   );
 };

@@ -34,7 +34,16 @@ describe("Item: api", () => {
     expect(result).toMatchInlineSnapshot(`
 Object {
   "_tag": "ItemStory",
+  "by": "dhouston",
   "id": 8863,
+  "kids": Array [
+    8952,
+    9224,
+    8917,
+  ],
+  "text": Object {
+    "_tag": "None",
+  },
   "title": Object {
     "_tag": "Some",
     "value": "My YC app: Dropbox - Throw away your USB drive",

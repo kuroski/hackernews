@@ -86,16 +86,14 @@ function onFailure(response: Response): TE.TaskEither<FetchError, never> {
   );
 }
 
-const customFetch = <Codec>(decoder: t.Type<Codec>) => {
-  return (request: URL, init?: RequestInit): TE.TaskEither<FetchError, Codec> =>
+const customFetch = <Codec extends t.Mixed>(decoder: Codec) => {
+  return (request: URL, init?: RequestInit) =>
     pipe(
       TE.tryCatch(() => crossFetch(request.toString(), init), toNetworkError),
-      TE.chain((response: Response) =>
+      TE.chain((response) =>
         response.ok ? onSuccess(response) : onFailure(response)
       ),
-      TE.chain<FetchError, unknown, Codec>(
-        flow(decoder.decode, E.mapLeft(toDecodingError), TE.fromEither)
-      )
+      TE.chain(flow(decoder.decode, E.mapLeft(toDecodingError), TE.fromEither))
     );
 };
 

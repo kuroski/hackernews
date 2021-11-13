@@ -8,7 +8,7 @@ import {
 } from "msw";
 import faker from "faker";
 import { ENDPOINTS as LIST_ENDPOINTS, TList } from "@framework/List";
-import { TItemStory } from "@framework/Item";
+import { TItem } from "@framework/Item";
 
 // #region List mocks
 
@@ -55,7 +55,7 @@ const itemHandler = (
 export const mockSuccessItemRequest = (
   overrides?: (
     req: RestRequest<DefaultRequestBody, RequestParams>
-  ) => TItemStory
+  ) => Partial<Record<keyof TItem, unknown>>
 ) =>
   itemHandler((req, res, ctx) =>
     res(

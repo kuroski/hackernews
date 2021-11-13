@@ -31,7 +31,16 @@ describe("hackernews API", () => {
 Array [
   Object {
     "_tag": "ItemStory",
+    "by": "dhouston",
     "id": 76686866,
+    "kids": Array [
+      8952,
+      9224,
+      8917,
+    ],
+    "text": Object {
+      "_tag": "None",
+    },
     "title": Object {
       "_tag": "Some",
       "value": "My story 76686866",
@@ -48,7 +57,16 @@ Array [
 Array [
   Object {
     "_tag": "ItemStory",
+    "by": "dhouston",
     "id": 76686866,
+    "kids": Array [
+      8952,
+      9224,
+      8917,
+    ],
+    "text": Object {
+      "_tag": "None",
+    },
     "title": Object {
       "_tag": "Some",
       "value": "My story 76686866",
@@ -57,7 +75,16 @@ Array [
   },
   Object {
     "_tag": "ItemStory",
+    "by": "dhouston",
     "id": 67829238,
+    "kids": Array [
+      8952,
+      9224,
+      8917,
+    ],
+    "text": Object {
+      "_tag": "None",
+    },
     "title": Object {
       "_tag": "Some",
       "value": "My story 67829238",
