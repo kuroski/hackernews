@@ -2,9 +2,9 @@ import { pipe } from "fp-ts/lib/function";
 import * as TE from "fp-ts/lib/TaskEither";
 import * as ROA from "fp-ts/lib/ReadonlyArray";
 import * as ROT from "fp-ts/lib/ReadonlyTuple";
-import * as L from "./List";
-import { getStory, Item } from "./Item";
-import { FetchError } from "./fetch";
+import * as L from "@framework/List";
+import { getStory, Item } from "@framework/Item";
+import { FetchError } from "@framework/fetch";
 
 export type LoadList = TE.TaskEither<
   FetchError,
