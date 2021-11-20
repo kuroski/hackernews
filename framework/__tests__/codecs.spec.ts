@@ -1,5 +1,6 @@
-import { URLFromString } from "@framework/codecs";
+import { URLFromString, withDefault } from "@framework/codecs";
 import * as E from "fp-ts/lib/Either";
+import * as t from "io-ts";
 import { PathReporter } from "io-ts/lib/PathReporter";
 
 describe("Codecs", () => {
@@ -39,6 +40,34 @@ Array [
       expect(
         T.encode(new URL("https://gcanti.github.io/io-ts-types/"))
       ).toEqual("https://gcanti.github.io/io-ts-types/");
+    });
+  });
+
+  describe("withDefault", () => {
+    it("is", () => {
+      const T = withDefault(t.string, "default");
+
+      expect(T.is("Hello world")).toBeTruthy();
+      expect(T.is("")).toBeTruthy();
+      expect(T.is(123)).toBeFalsy();
+    });
+
+    it("decodes", () => {
+      const T = withDefault(t.string, "default");
+
+      expect(T.decode("Hello world")).toEqual(E.right("Hello world"));
+      expect(T.decode(null)).toEqual(E.right("default"));
+      expect(T.decode(undefined)).toEqual(E.right("default"));
+      expect(PathReporter.report(T.decode(123))).toMatchInlineSnapshot(`
+Array [
+  "Invalid value 123 supplied to : withDefault(string, \\"default\\")",
+]
+`);
+    });
+
+    it("encodes", () => {
+      const T = withDefault(t.string, "default");
+      expect(T.encode("Hello world")).toEqual("Hello world");
     });
   });
 });

@@ -20,3 +20,15 @@ export const URLFromString = new t.Type<URL, string, unknown>(
     ),
   String
 );
+
+export function withDefault<T extends t.Any>(
+  type: T,
+  defaultValue: t.TypeOf<T>
+): t.Type<t.InputOf<T>, t.TypeOf<T>> {
+  return new t.Type(
+    `withDefault(${type.name}, ${JSON.stringify(defaultValue)})`,
+    type.is,
+    (v, c) => type.validate(v != null ? v : defaultValue, c),
+    type.encode
+  );
+}

@@ -48,7 +48,10 @@ Object {
     "_tag": "Some",
     "value": "My YC app: Dropbox - Throw away your USB drive",
   },
-  "url": "http://www.getdropbox.com/u/2/screencast.html",
+  "url": Object {
+    "_tag": "Some",
+    "value": "http://www.getdropbox.com/u/2/screencast.html",
+  },
 }
 `);
   });

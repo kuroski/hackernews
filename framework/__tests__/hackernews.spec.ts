@@ -45,7 +45,10 @@ Array [
       "_tag": "Some",
       "value": "My story 76686866",
     },
-    "url": "http://my-url.com/?storyId=76686866",
+    "url": Object {
+      "_tag": "Some",
+      "value": "http://my-url.com/?storyId=76686866",
+    },
   },
 ]
 `);
@@ -71,7 +74,10 @@ Array [
       "_tag": "Some",
       "value": "My story 76686866",
     },
-    "url": "http://my-url.com/?storyId=76686866",
+    "url": Object {
+      "_tag": "Some",
+      "value": "http://my-url.com/?storyId=76686866",
+    },
   },
   Object {
     "_tag": "ItemStory",
@@ -89,7 +95,10 @@ Array [
       "_tag": "Some",
       "value": "My story 67829238",
     },
-    "url": "http://my-url.com/?storyId=67829238",
+    "url": Object {
+      "_tag": "Some",
+      "value": "http://my-url.com/?storyId=67829238",
+    },
   },
 ]
 `);

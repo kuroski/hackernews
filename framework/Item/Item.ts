@@ -1,7 +1,7 @@
 import * as t from "io-ts";
 import * as tt from "io-ts-types";
 import * as E from "fp-ts/Either";
-import { URLFromString } from "@framework/codecs";
+import { URLFromString, withDefault } from "@framework/codecs";
 import { TList } from "@framework/List";
 
 // #region Id brand
@@ -24,7 +24,7 @@ const ItemStory = t.strict({
   by: t.readonly(t.string),
   title: t.readonly(tt.option(t.string)),
   text: t.readonly(tt.option(t.string)),
-  url: t.readonly(URLFromString),
+  url: t.readonly(tt.option(URLFromString)),
   kids: t.readonlyArray(ItemId),
 });
 
@@ -36,7 +36,7 @@ const ItemJob = t.strict({
   by: t.readonly(t.string),
   title: t.readonly(tt.option(t.string)),
   text: t.readonly(tt.option(t.string)),
-  url: t.readonly(URLFromString),
+  url: t.readonly(tt.option(URLFromString)),
 });
 
 export type ItemJob = t.TypeOf<typeof ItemJob>;
@@ -50,8 +50,8 @@ export const TItemStory = t.strict({
   by: t.string,
   title: tt.optionFromNullable(t.string),
   text: tt.optionFromNullable(t.string),
-  url: t.string,
-  kids: TList,
+  url: tt.optionFromNullable(t.string),
+  kids: withDefault(TList, []),
 });
 export type TItemStory = t.TypeOf<typeof TItemStory>;
 
@@ -61,7 +61,7 @@ export const TItemJob = t.strict({
   by: t.string,
   title: tt.optionFromNullable(t.string),
   text: tt.optionFromNullable(t.string),
-  url: t.string,
+  url: tt.optionFromNullable(t.string),
 });
 export type TItemJob = t.TypeOf<typeof TItemJob>;
 
