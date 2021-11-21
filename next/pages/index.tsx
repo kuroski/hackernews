@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import * as T from "fp-ts/lib/Task";
 import * as O from "fp-ts/lib/Option";
 import * as TE from "fp-ts/lib/TaskEither";
-import * as ROA from "fp-ts/lib/ReadonlyArray";
 import { pipe } from "fp-ts/lib/function";
 import { Item } from "@framework/Item";
 import * as RD from "@devexperts/remote-data-ts";
@@ -41,6 +40,7 @@ const useStories = () => {
     };
 
     fetchStories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pages]);
 
   return [rd, stories, () => setPages(pages + 1)] as const;
