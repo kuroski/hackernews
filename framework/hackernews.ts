@@ -1,4 +1,5 @@
 import { pipe } from "fp-ts/lib/function";
+import * as O from "fp-ts/lib/Option";
 import * as TE from "fp-ts/lib/TaskEither";
 import * as ROA from "fp-ts/lib/ReadonlyArray";
 import * as ROT from "fp-ts/lib/ReadonlyTuple";
@@ -8,10 +9,10 @@ import { FetchError } from "@framework/fetch";
 
 export type LoadList = TE.TaskEither<
   FetchError,
-  readonly [readonly Item[], () => LoadList]
+  readonly [readonly Item[], O.Option<() => LoadList>]
 >;
 
-export const topStories = (pageSize = 20) => {
+export const topStories = (pageSize = 20): LoadList => {
   function loadList(lists: L.List, itemsAcc: readonly Item[]) {
     const [items, remainingList] = pipe(
       lists,
@@ -26,10 +27,13 @@ export const topStories = (pageSize = 20) => {
 
     return pipe(
       items,
-      TE.map(
-        (result) =>
-          [result, (): LoadList => loadList(remainingList, result)] as const
-      )
+      TE.map((result) => {
+        const next = ROA.isEmpty(remainingList)
+          ? O.none
+          : O.some((): LoadList => loadList(remainingList, result));
+
+        return [result, next] as const;
+      })
     );
   }
 
