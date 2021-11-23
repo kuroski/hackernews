@@ -11,19 +11,16 @@ import { FetchError, fetchErrorToString } from "@framework/fetch";
 
 const useStories = () => {
   const [next, setNext] = useState<O.Option<() => LoadList>>(O.none);
-
   const [remoteData, setRemoteData] = useState<
     RD.RemoteData<FetchError, readonly Item[]>
   >(RD.initial);
   const [stories, setStories] = useState<readonly Item[]>([]);
 
-  const fetchStories = useCallback(async () => {
+  const fetchStories = useCallback(async (n: () => LoadList) => {
     setRemoteData(RD.pending);
 
     const result = await pipe(
-      next,
-      O.map((a) => a()),
-      O.getOrElseW(() => topStories(2)),
+      n(),
       TE.fold(
         (err) => T.of(RD.failure(err)),
         ([items, nextFn]) => {
@@ -35,15 +32,19 @@ const useStories = () => {
     )();
 
     setRemoteData(result);
-  }, [next]);
-
-  useEffect(() => {
-    fetchStories();
   }, []);
 
-  const nextFn = pipe(
-    next,
-    O.map((_nextFn) => fetchStories)
+  useEffect(() => {
+    fetchStories(() => topStories(2));
+  }, [fetchStories]);
+
+  const nextFn = useMemo(
+    () =>
+      pipe(
+        next,
+        O.map((nextFn) => () => fetchStories(nextFn))
+      ),
+    [fetchStories, next]
   );
 
   return {
