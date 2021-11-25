@@ -1,61 +1,12 @@
 import type { NextPage } from "next";
-import { LoadList, topStories } from "@framework/hackernews";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import * as T from "fp-ts/lib/Task";
 import * as O from "fp-ts/lib/Option";
-import * as TE from "fp-ts/lib/TaskEither";
-import { apply, constant, identity, pipe } from "fp-ts/lib/function";
-import { Item } from "@framework/Item";
+import { pipe } from "fp-ts/lib/function";
 import * as RD from "@devexperts/remote-data-ts";
-import { FetchError, fetchErrorToString } from "@framework/fetch";
-
-const useStories = () => {
-  const [next, setNext] = useState<O.Option<() => LoadList>>(O.none);
-  const [remoteData, setRemoteData] = useState<
-    RD.RemoteData<FetchError, readonly Item[]>
-  >(RD.initial);
-  const [stories, setStories] = useState<readonly Item[]>([]);
-
-  const fetchStories = useCallback(async (n: () => LoadList) => {
-    setRemoteData(RD.pending);
-
-    const result = await pipe(
-      n(),
-      TE.fold(
-        (err) => T.of(RD.failure(err)),
-        ([items, nextFn]) => {
-          setNext(nextFn);
-          setStories(items);
-          return T.of(RD.success(items));
-        }
-      )
-    )();
-
-    setRemoteData(result);
-  }, []);
-
-  useEffect(() => {
-    fetchStories(() => topStories(2));
-  }, [fetchStories]);
-
-  const nextFn = useMemo(
-    () =>
-      pipe(
-        next,
-        O.map((nextFn) => () => fetchStories(nextFn))
-      ),
-    [fetchStories, next]
-  );
-
-  return {
-    remoteData,
-    stories,
-    nextFn,
-  };
-};
+import { fetchErrorToString } from "@framework/fetch";
+import { useStories } from "@framework/react/hooks";
 
 const Home: NextPage = () => {
-  const { remoteData, stories, nextFn } = useStories();
+  const { remoteData, stories, loadMore } = useStories(2);
 
   return (
     <>
@@ -76,7 +27,7 @@ const Home: NextPage = () => {
           (err) => <div>{fetchErrorToString(err)}</div>,
           (_result) =>
             pipe(
-              nextFn,
+              loadMore,
               O.match(
                 () => <div>All loaded up =D</div>,
                 (next) => (
