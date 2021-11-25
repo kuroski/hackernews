@@ -1,6 +1,7 @@
 import { topStories } from "@framework/hackernews";
 import { pipe } from "fp-ts/lib/function";
 import * as T from "fp-ts/lib/Task";
+import * as O from "fp-ts/lib/Option";
 import * as TE from "fp-ts/lib/TaskEither";
 import { server } from "@framework/mocks/server";
 import { rest } from "msw";
@@ -25,7 +26,7 @@ describe("hackernews API", () => {
 
     pipe(
       topStories(1),
-      TE.chain(([items, next]) => {
+      TE.chain(([items, nextOption]) => {
         expect(items).toHaveLength(1);
         expect(items).toMatchInlineSnapshot(`
 Array [
@@ -52,6 +53,13 @@ Array [
   },
 ]
 `);
+        const next = pipe(
+          nextOption,
+          O.getOrElseW(() => {
+            throw new Error("Next function must be present within this test");
+          })
+        );
+
         return next();
       }),
       TE.map(([items, _next]) => {
