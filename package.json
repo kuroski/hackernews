@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@devexperts/remote-data-ts": "^2.1.1",
+    "autoprefixer": "^10.4.0",
     "cross-fetch": "^3.1.4",
     "fluture": "^14.0.0",
     "fp-ts": "^2.11.5",
@@ -23,8 +24,10 @@
     "newtype-ts": "^0.3.4",
     "next": "12",
     "pattern-matching-ts": "^2.0.0",
+    "postcss": "^8.4.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",

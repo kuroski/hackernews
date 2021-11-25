@@ -6,14 +6,14 @@ import { fetchErrorToString } from "@framework/fetch";
 import { useStories } from "@framework/react/hooks";
 
 const Home: NextPage = () => {
-  const { remoteData, stories, loadMore } = useStories(2);
+  const { remoteData, stories, loadMore } = useStories(3);
 
   return (
     <>
-      <ul>
+      <ul className="space-y-6 bg-gray-200 rounded shadow">
         {stories.map((i) => (
-          <li key={i.id.toString()}>
-            <span>{JSON.stringify(i.text)}</span>
+          <li key={i.id.toString()} className="p-4">
+            <span>{JSON.stringify(i.title)}</span>
             <small>{JSON.stringify(i.url)}</small>
           </li>
         ))}
@@ -31,8 +31,8 @@ const Home: NextPage = () => {
               O.match(
                 () => <div>All loaded up =D</div>,
                 (next) => (
-                  <button key="load-more" onClick={next}>
-                    Load More...
+                  <button key="load-more" onClick={next} className="button">
+                    Load More
                   </button>
                 )
               )
