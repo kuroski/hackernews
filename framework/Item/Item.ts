@@ -1,6 +1,8 @@
+import { Prism } from "monocle-ts";
 import * as t from "io-ts";
 import * as tt from "io-ts-types";
 import * as E from "fp-ts/Either";
+import { Eq, fromEquals } from "fp-ts/lib/Eq";
 import { URLFromString, withDefault } from "@framework/codecs";
 import { TList } from "@framework/List";
 
@@ -42,6 +44,45 @@ const ItemJob = t.strict({
 export type ItemJob = t.TypeOf<typeof ItemJob>;
 
 export type Item = ItemStory | ItemJob;
+
+// #region instances
+
+export const _ItemStory: Prism<Item, Item> = Prism.fromPredicate(
+  (s) => s._tag === "ItemStory"
+);
+
+export const _ItemJob: Prism<Item, Item> = Prism.fromPredicate(
+  (s) => s._tag === "ItemJob"
+);
+
+export function getEq(): Eq<Item> {
+  return fromEquals((x, y) => {
+    if (x._tag === "ItemStory" && y._tag === "ItemStory") {
+      return true;
+    }
+    if (x._tag === "ItemJob" && y._tag === "ItemJob") {
+      return true;
+    }
+    return false;
+  });
+}
+//#endregion
+
+// #region destructors
+export function fold<R>(
+  onItemStory: (story: ItemStory) => R,
+  onItemJob: (job: ItemJob) => R
+): (fa: Item) => R {
+  return (fa) => {
+    switch (fa._tag) {
+      case "ItemStory":
+        return onItemStory(fa);
+      case "ItemJob":
+        return onItemJob(fa);
+    }
+  };
+}
+//#endregion
 
 // #region Api response data type
 export const TItemStory = t.strict({

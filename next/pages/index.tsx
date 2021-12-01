@@ -4,7 +4,7 @@ import { pipe } from "fp-ts/lib/function";
 import * as RD from "@devexperts/remote-data-ts";
 import { fetchErrorToString } from "@framework/fetch";
 import { useStories } from "@framework/react/hooks";
-import { Item } from "@framework/Item";
+import * as I from "@framework/Item";
 
 const Spinner = () => (
   <svg
@@ -30,7 +30,7 @@ const Spinner = () => (
 );
 
 type StoryProps = {
-  item: Item;
+  item: I.Item;
 };
 
 const Story = (props: StoryProps) => {
@@ -46,13 +46,27 @@ const Story = (props: StoryProps) => {
         ({url.toString()})
       </a>
     )),
-    O.getOrElse(() => <div>(-)</div>)
+    O.getOrElse(() => <></>)
   );
-  return (
-    <div className="flex flex-col p-2 m-2">
-      <span>{title}</span>
-      <small className="text-xs font-thin">{url}</small>
-    </div>
+
+  return pipe(
+    props.item,
+    I.fold(
+      () => (
+        <div className="flex flex-col p-2 m-2">
+          <span>{title}</span>
+          <small className="text-xs font-thin">{url}</small>
+          <small>story</small>
+        </div>
+      ),
+      () => (
+        <div className="flex flex-col p-2 m-2">
+          <span>{title}</span>
+          <small className="text-xs font-thin">{url}</small>
+          <small>job</small>
+        </div>
+      )
+    )
   );
 };
 
@@ -81,8 +95,8 @@ const Home: NextPage = () => {
   );
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="bg-gray-200 rounded shadow divide-y divide-purple-300 divide-dashed">
+    <div className="w-full flex flex-col items-center gap-4">
+      <div className="bg-gray-50 rounded shadow divide-y divide-gray-200 divide-solid">
         {stories.map((item) => (
           <Story key={item.id.toString()} item={item} />
         ))}
