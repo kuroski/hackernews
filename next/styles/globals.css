@@ -2,10 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Upheaval TT (BRK)';
+    src: url('/fonts/upheavaltt/UpheavalTT-BRK-.eot');
+    src: url('/fonts/upheavaltt/UpheavalTT-BRK-.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/upheavaltt/UpheavalTT-BRK-.woff2') format('woff2'),
+        url('/fonts/upheavaltt/UpheavalTT-BRK-.woff') format('woff'),
+        url('/fonts/upheavaltt/UpheavalTT-BRK-.ttf') format('truetype'),
+        url('/fonts/upheavaltt/UpheavalTT-BRK-.svg#UpheavalTT-BRK-') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 body {
-    @apply p-2 bg-gray-200;
+    @apply font-bit text-base p-2 bg-pale-silver;
 }
 
 .button {
-    @apply flex-shrink-0 bg-purple-600 text-white text-xs font-semibold py-1 px-2 rounded-xl shadow-md transition hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200;
+    @apply flex-shrink-0 bg-lavender-blush border-sonic-silver border-4 text-base font-semibold py-1 px-2 rounded-xl shadow-md transition hover:bg-silver-metallic focus:outline-none focus:ring-2 focus:ring-sonic-silver focus:ring-offset-2 focus:ring-offset-purple-200;
 }

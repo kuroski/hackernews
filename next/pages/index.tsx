@@ -8,7 +8,7 @@ import * as I from "@framework/Item";
 
 const Spinner = () => (
   <svg
-    className="animate-spin -ml-1 mr-3 h-5 w-5 text-purple-500"
+    className="animate-spin -ml-1 mr-3 h-5 w-5 text-sonic-silver"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ const Story = (props: StoryProps) => {
     props.item.url,
     O.map((url) => (
       <a key={url.toString()} href={url.toString()}>
-        ({url.toString()})
+        {url.toString()}
       </a>
     )),
     O.getOrElse(() => <></>)
@@ -53,16 +53,16 @@ const Story = (props: StoryProps) => {
     props.item,
     I.fold(
       () => (
-        <div className="flex flex-col p-2 m-2">
+        <div className="flex flex-col p-2 m-2 text-3xl">
           <span>{title}</span>
-          <small className="text-xs font-thin">{url}</small>
+          <small className="text-sm text-silver-metallic">{url}</small>
           <small>story</small>
         </div>
       ),
       () => (
-        <div className="flex flex-col p-2 m-2">
+        <div className="flex flex-col p-2 m-2 text-3xl">
           <span>{title}</span>
-          <small className="text-xs font-thin">{url}</small>
+          <small className="text-sm text-silver-metallic">{url}</small>
           <small>job</small>
         </div>
       )
@@ -96,7 +96,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="w-full flex flex-col items-center gap-4">
-      <div className="bg-gray-50 rounded shadow divide-y divide-gray-200 divide-solid">
+      <div className="bg-lavender-blush border-sonic-silver border-4 rounded shadow divide-y divide-gray-200 divide-solid">
         {stories.map((item) => (
           <Story key={item.id.toString()} item={item} />
         ))}
