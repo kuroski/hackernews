@@ -96,7 +96,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="w-full flex flex-col items-center gap-4">
-      <div className="bg-lavender-blush border-sonic-silver border-4 rounded shadow divide-y divide-gray-200 divide-solid">
+      <div className="bg-lavender-blush border-sonic-silver border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
         {stories.map((item) => (
           <Story key={item.id.toString()} item={item} />
         ))}

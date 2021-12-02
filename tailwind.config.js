@@ -12,6 +12,10 @@ module.exports = {
       fontFamily: {
         bit: ["'Upheaval TT (BRK)'", "cursive"],
       },
+      borderRadius: {
+        paper:
+          "15.9375rem 0.9375rem 14.0625rem 0.9375rem/0.9375rem 14.0625rem 0.9375rem 15.9375rem",
+      },
     },
   },
   variants: {
