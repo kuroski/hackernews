@@ -95,12 +95,14 @@ const Home: NextPage = () => {
   );
 
   return (
-    <div className="w-full flex flex-col items-center gap-4">
-      <div className="bg-lavender-blush border-sonic-silver border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
-        {stories.map((item) => (
-          <Story key={item.id.toString()} item={item} />
-        ))}
-      </div>
+    <div className="relative w-full max-w-xl mx-auto flex flex-col items-center gap-4">
+      {stories.length > 0 && (
+        <div className="stories bg-lavender-blush border-sonic-silver border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
+          {stories.map((item) => (
+            <Story key={item.id.toString()} item={item} />
+          ))}
+        </div>
+      )}
 
       {loadMoreButton}
     </div>
