@@ -53,14 +53,14 @@ const Story = (props: StoryProps) => {
     props.item,
     I.fold(
       () => (
-        <div className="flex flex-col p-2 m-2 text-3xl">
+        <div className="flex flex-col p-2 m-2 text-2xl leading-none">
           <span>{title}</span>
           <small className="text-sm text-silver-metallic">{url}</small>
           <small>story</small>
         </div>
       ),
       () => (
-        <div className="flex flex-col p-2 m-2 text-3xl">
+        <div className="flex flex-col p-2 m-2 text-2xl leading-none">
           <span>{title}</span>
           <small className="text-sm text-silver-metallic">{url}</small>
           <small>job</small>
@@ -97,7 +97,7 @@ const Home: NextPage = () => {
   return (
     <div className="relative w-full max-w-xl mx-auto flex flex-col items-center gap-4">
       {stories.length > 0 && (
-        <div className="stories bg-lavender-blush border-sonic-silver border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
+        <div className="stories px-6 bg-lavender-blush border-sonic-silver border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
           {stories.map((item) => (
             <Story key={item.id.toString()} item={item} />
           ))}

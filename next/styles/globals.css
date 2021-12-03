@@ -17,7 +17,7 @@
 }
 
 body {
-  @apply font-bit text-base p-2 bg-pale-silver;
+  @apply font-bit text-base p-2 bg-pale-silver text-black-coffee;
 }
 
 .button {
@@ -25,11 +25,59 @@ body {
 }
 
 .stories > div {
-    @apply pl-12;
+  @apply relative;
 }
 
 .stories > div:hover::before,
 .stories > div:focus::before {
-    content: url("/arrow.svg");
-    @apply absolute left-8;
+  content: "";
+  @apply absolute -left-6 top-2 transform scale-30;
+  box-shadow: 25px 5px 0 0 theme('colors.black-coffee'), 30px 5px 0 0 theme('colors.black-coffee'),
+    35px 5px 0 0 theme('colors.black-coffee'), 25px 10px 0 0 theme('colors.black-coffee'),
+    30px 10px 0 0 theme('colors.black-coffee'), 35px 10px 0 0 theme('colors.black-coffee'),
+    40px 10px 0 0 theme('colors.black-coffee'), 20px 15px 0 0 theme('colors.black-coffee'),
+    25px 15px 0 0 theme('colors.black-coffee'), 30px 15px 0 0 theme('colors.black-coffee'),
+    35px 15px 0 0 theme('colors.black-coffee'), 40px 15px 0 0 theme('colors.black-coffee'),
+    45px 15px 0 0 theme('colors.black-coffee'), 50px 15px 0 0 theme('colors.black-coffee'),
+    55px 15px 0 0 theme('colors.black-coffee'), 20px 20px 0 0 theme('colors.black-coffee'),
+    25px 20px 0 0 theme('colors.black-coffee'), 30px 20px 0 0 theme('colors.black-coffee'),
+    35px 20px 0 0 theme('colors.black-coffee'), 40px 20px 0 0 theme('colors.black-coffee'),
+    45px 20px 0 0 theme('colors.black-coffee'), 50px 20px 0 0 theme('colors.black-coffee'),
+    55px 20px 0 0 theme('colors.black-coffee'), 60px 20px 0 0 theme('colors.black-coffee'),
+    65px 20px 0 0 theme('colors.black-coffee'), 70px 20px 0 0 theme('colors.black-coffee'),
+    15px 25px 0 0 theme('colors.black-coffee'), 20px 25px 0 0 theme('colors.black-coffee'),
+    25px 25px 0 0 theme('colors.black-coffee'), 30px 25px 0 0 theme('colors.black-coffee'),
+    35px 25px 0 0 theme('colors.black-coffee'), 40px 25px 0 0 theme('colors.black-coffee'),
+    45px 25px 0 0 theme('colors.black-coffee'), 50px 25px 0 0 theme('colors.black-coffee'),
+    55px 25px 0 0 theme('colors.black-coffee'), 60px 25px 0 0 theme('colors.black-coffee'),
+    65px 25px 0 0 theme('colors.black-coffee'), 70px 25px 0 0 theme('colors.black-coffee'),
+    75px 25px 0 0 theme('colors.black-coffee'), 10px 30px 0 0 theme('colors.black-coffee'),
+    15px 30px 0 0 theme('colors.black-coffee'), 20px 30px 0 0 theme('colors.black-coffee'),
+    25px 30px 0 0 theme('colors.black-coffee'), 30px 30px 0 0 theme('colors.black-coffee'),
+    35px 30px 0 0 theme('colors.black-coffee'), 40px 30px 0 0 theme('colors.black-coffee'),
+    45px 30px 0 0 theme('colors.black-coffee'), 50px 30px 0 0 theme('colors.black-coffee'),
+    55px 30px 0 0 theme('colors.black-coffee'), 60px 30px 0 0 theme('colors.black-coffee'),
+    65px 30px 0 0 theme('colors.black-coffee'), 70px 30px 0 0 theme('colors.black-coffee'),
+    75px 30px 0 0 theme('colors.black-coffee'), 10px 35px 0 0 theme('colors.black-coffee'),
+    15px 35px 0 0 theme('colors.black-coffee'), 20px 35px 0 0 theme('colors.black-coffee'),
+    25px 35px 0 0 theme('colors.black-coffee'), 30px 35px 0 0 theme('colors.black-coffee'),
+    35px 35px 0 0 theme('colors.black-coffee'), 40px 35px 0 0 theme('colors.black-coffee'),
+    45px 35px 0 0 theme('colors.black-coffee'), 50px 35px 0 0 theme('colors.black-coffee'),
+    55px 35px 0 0 theme('colors.black-coffee'), 60px 35px 0 0 theme('colors.black-coffee'),
+    65px 35px 0 0 theme('colors.black-coffee'), 70px 35px 0 0 theme('colors.black-coffee'),
+    10px 40px 0 0 theme('colors.black-coffee'), 15px 40px 0 0 theme('colors.black-coffee'),
+    20px 40px 0 0 theme('colors.black-coffee'), 25px 40px 0 0 theme('colors.black-coffee'),
+    30px 40px 0 0 theme('colors.black-coffee'), 35px 40px 0 0 theme('colors.black-coffee'),
+    40px 40px 0 0 theme('colors.black-coffee'), 45px 40px 0 0 theme('colors.black-coffee'),
+    50px 40px 0 0 theme('colors.black-coffee'), 55px 40px 0 0 theme('colors.black-coffee'),
+    60px 40px 0 0 theme('colors.black-coffee'), 5px 45px 0 0 theme('colors.black-coffee'),
+    10px 45px 0 0 theme('colors.black-coffee'), 15px 45px 0 0 theme('colors.black-coffee'),
+    20px 45px 0 0 theme('colors.black-coffee'), 25px 45px 0 0 theme('colors.black-coffee'),
+    30px 45px 0 0 theme('colors.black-coffee'), 35px 45px 0 0 theme('colors.black-coffee'),
+    40px 45px 0 0 theme('colors.black-coffee'), 5px 50px 0 0 theme('colors.black-coffee'),
+    10px 50px 0 0 theme('colors.black-coffee'), 15px 50px 0 0 theme('colors.black-coffee'),
+    20px 50px 0 0 theme('colors.black-coffee'), 25px 50px 0 0 theme('colors.black-coffee'),
+    30px 50px 0 0 theme('colors.black-coffee');
+  height: 5px;
+  width: 5px;
 }
