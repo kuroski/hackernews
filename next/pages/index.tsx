@@ -47,10 +47,7 @@ const Story = (props: StoryProps) => {
     pipe(
       props.item.url,
       O.map((url) => (
-        <section
-          key={props.key}
-          className="flex flex-col p-2 m-2 text-xl md:text-3xl leading-none outline-none"
-        >
+        <section key={props.key}>
           <Link key={props.key} href={url}>
             {title}
           </Link>
@@ -61,10 +58,7 @@ const Story = (props: StoryProps) => {
         </section>
       )),
       O.getOrElse(() => (
-        <section
-          key={props.key}
-          className="flex flex-col p-2 m-2 text-xl md:text-3xl leading-none"
-        >
+        <section key={props.key}>
           <span>{title}</span>
           {children}
         </section>
@@ -89,14 +83,14 @@ const Story = (props: StoryProps) => {
 };
 
 const Home: NextPage = () => {
-  const { remoteData, stories, loadMore } = useStories(3);
+  const { remoteData, stories, loadMore } = useStories(10);
 
   const loadMoreButton = pipe(
     remoteData,
     RD.fold(
       () => <div>Nothing loaded yet</div>,
       () => (
-        <div className="self-center">
+        <div className="self-center mt-2">
           <Spinner />
         </div>
       ),
@@ -126,8 +120,8 @@ const Home: NextPage = () => {
         <title>Hackernews</title>
       </Head>
       <div className="relative w-full max-w-2xl mx-auto flex flex-col items-center gap-4">
-        <div className="stories flex flex-col px-6 py-4 bg-isaac-500 border-isaac-800 border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
-          <h1 className="text-xl md:text-3xl text-center mb-2">Top stories</h1>
+        <div className="stories">
+          <h1>Top stories</h1>
 
           {stories.map((item) => (
             <Story key={item.id.toString()} item={item} />

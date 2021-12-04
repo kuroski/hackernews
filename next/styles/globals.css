@@ -21,13 +21,51 @@ body {
 }
 
 .button {
-  @apply relative flex-shrink-0 border-4 text-base font-semibold py-1 px-4 transition focus:outline-none focus:ring-2 focus:ring-isaac-800 focus:ring-offset-2 focus:ring-offset-purple-200;
+  @apply relative flex-shrink-0 text-base font-semibold py-1 px-4 transition focus:outline-none focus:ring-2 focus:ring-isaac-800 focus:ring-offset-2 focus:ring-offset-purple-200;
+}
+
+.stories {
+  @apply w-full flex flex-col px-6 py-4 bg-isaac-500 border-isaac-800 border-4 rounded-paper shadow;
+}
+
+.stories > h1 {
+  @apply relative text-xl md:text-3xl text-center mb-2;
+}
+
+.stories > h1::before {
+  @apply absolute bottom-3 transform -translate-x-4 scale-x-230 opacity-30;
+  content: "";
+  box-shadow: 90px 5px 0 0 rgba(158, 152, 154, 1),
+    95px 5px 0 0 rgba(158, 152, 154, 1), 100px 5px 0 0 rgba(158, 152, 154, 1),
+    5px 10px 0 0 rgba(158, 152, 154, 1), 10px 10px 0 0 rgba(158, 152, 154, 1),
+    15px 10px 0 0 rgba(158, 152, 154, 1), 20px 10px 0 0 rgba(158, 152, 154, 1),
+    25px 10px 0 0 rgba(158, 152, 154, 1), 30px 10px 0 0 rgba(158, 152, 154, 1),
+    35px 10px 0 0 rgba(158, 152, 154, 1), 40px 10px 0 0 rgba(158, 152, 154, 1),
+    45px 10px 0 0 rgba(158, 152, 154, 1), 50px 10px 0 0 rgba(158, 152, 154, 1),
+    55px 10px 0 0 rgba(158, 152, 154, 1), 60px 10px 0 0 rgba(158, 152, 154, 1),
+    65px 10px 0 0 rgba(158, 152, 154, 1), 70px 10px 0 0 rgba(158, 152, 154, 1),
+    75px 10px 0 0 rgba(158, 152, 154, 1), 80px 10px 0 0 rgba(158, 152, 154, 1),
+    85px 10px 0 0 rgba(158, 152, 154, 1), 90px 10px 0 0 rgba(158, 152, 154, 1),
+    95px 10px 0 0 rgba(158, 152, 154, 1), 10px 15px 0 0 rgba(158, 152, 154, 1),
+    15px 15px 0 0 rgba(158, 152, 154, 1), 20px 15px 0 0 rgba(158, 152, 154, 1),
+    25px 15px 0 0 rgba(158, 152, 154, 1), 30px 15px 0 0 rgba(158, 152, 154, 1),
+    35px 15px 0 0 rgba(158, 152, 154, 1), 40px 15px 0 0 rgba(158, 152, 154, 1),
+    45px 15px 0 0 rgba(158, 152, 154, 1), 50px 15px 0 0 rgba(158, 152, 154, 1),
+    55px 15px 0 0 rgba(158, 152, 154, 1), 60px 15px 0 0 rgba(158, 152, 154, 1),
+    65px 15px 0 0 rgba(158, 152, 154, 1), 70px 15px 0 0 rgba(158, 152, 154, 1),
+    75px 15px 0 0 rgba(158, 152, 154, 1), 80px 15px 0 0 rgba(158, 152, 154, 1),
+    85px 15px 0 0 rgba(158, 152, 154, 1), 40px 20px 0 0 rgba(158, 152, 154, 1),
+    45px 20px 0 0 rgba(158, 152, 154, 1), 50px 20px 0 0 rgba(158, 152, 154, 1),
+    55px 20px 0 0 rgba(158, 152, 154, 1), 20px 25px 0 0 rgba(158, 152, 154, 1),
+    25px 25px 0 0 rgba(158, 152, 154, 1), 30px 25px 0 0 rgba(158, 152, 154, 1),
+    35px 25px 0 0 rgba(158, 152, 154, 1), 40px 25px 0 0 rgba(158, 152, 154, 1);
+  height: 5px;
+  width: 5px;
 }
 
 .stories > section {
-  @apply relative;
+  @apply relative flex flex-col p-2 m-2 text-xl md:text-3xl leading-none outline-none;
 }
-
 
 .button::before,
 .button::before {
@@ -50,52 +88,97 @@ body {
 .button:focus::before,
 .button:hover::before {
   @apply opacity-100;
-  box-shadow: 25px 5px 0 0 theme('colors.isaac-900'), 30px 5px 0 0 theme('colors.isaac-900'),
-    35px 5px 0 0 theme('colors.isaac-900'), 25px 10px 0 0 theme('colors.isaac-900'),
-    30px 10px 0 0 theme('colors.isaac-900'), 35px 10px 0 0 theme('colors.isaac-900'),
-    40px 10px 0 0 theme('colors.isaac-900'), 20px 15px 0 0 theme('colors.isaac-900'),
-    25px 15px 0 0 theme('colors.isaac-900'), 30px 15px 0 0 theme('colors.isaac-900'),
-    35px 15px 0 0 theme('colors.isaac-900'), 40px 15px 0 0 theme('colors.isaac-900'),
-    45px 15px 0 0 theme('colors.isaac-900'), 50px 15px 0 0 theme('colors.isaac-900'),
-    55px 15px 0 0 theme('colors.isaac-900'), 20px 20px 0 0 theme('colors.isaac-900'),
-    25px 20px 0 0 theme('colors.isaac-900'), 30px 20px 0 0 theme('colors.isaac-900'),
-    35px 20px 0 0 theme('colors.isaac-900'), 40px 20px 0 0 theme('colors.isaac-900'),
-    45px 20px 0 0 theme('colors.isaac-900'), 50px 20px 0 0 theme('colors.isaac-900'),
-    55px 20px 0 0 theme('colors.isaac-900'), 60px 20px 0 0 theme('colors.isaac-900'),
-    65px 20px 0 0 theme('colors.isaac-900'), 70px 20px 0 0 theme('colors.isaac-900'),
-    15px 25px 0 0 theme('colors.isaac-900'), 20px 25px 0 0 theme('colors.isaac-900'),
-    25px 25px 0 0 theme('colors.isaac-900'), 30px 25px 0 0 theme('colors.isaac-900'),
-    35px 25px 0 0 theme('colors.isaac-900'), 40px 25px 0 0 theme('colors.isaac-900'),
-    45px 25px 0 0 theme('colors.isaac-900'), 50px 25px 0 0 theme('colors.isaac-900'),
-    55px 25px 0 0 theme('colors.isaac-900'), 60px 25px 0 0 theme('colors.isaac-900'),
-    65px 25px 0 0 theme('colors.isaac-900'), 70px 25px 0 0 theme('colors.isaac-900'),
-    75px 25px 0 0 theme('colors.isaac-900'), 10px 30px 0 0 theme('colors.isaac-900'),
-    15px 30px 0 0 theme('colors.isaac-900'), 20px 30px 0 0 theme('colors.isaac-900'),
-    25px 30px 0 0 theme('colors.isaac-900'), 30px 30px 0 0 theme('colors.isaac-900'),
-    35px 30px 0 0 theme('colors.isaac-900'), 40px 30px 0 0 theme('colors.isaac-900'),
-    45px 30px 0 0 theme('colors.isaac-900'), 50px 30px 0 0 theme('colors.isaac-900'),
-    55px 30px 0 0 theme('colors.isaac-900'), 60px 30px 0 0 theme('colors.isaac-900'),
-    65px 30px 0 0 theme('colors.isaac-900'), 70px 30px 0 0 theme('colors.isaac-900'),
-    75px 30px 0 0 theme('colors.isaac-900'), 10px 35px 0 0 theme('colors.isaac-900'),
-    15px 35px 0 0 theme('colors.isaac-900'), 20px 35px 0 0 theme('colors.isaac-900'),
-    25px 35px 0 0 theme('colors.isaac-900'), 30px 35px 0 0 theme('colors.isaac-900'),
-    35px 35px 0 0 theme('colors.isaac-900'), 40px 35px 0 0 theme('colors.isaac-900'),
-    45px 35px 0 0 theme('colors.isaac-900'), 50px 35px 0 0 theme('colors.isaac-900'),
-    55px 35px 0 0 theme('colors.isaac-900'), 60px 35px 0 0 theme('colors.isaac-900'),
-    65px 35px 0 0 theme('colors.isaac-900'), 70px 35px 0 0 theme('colors.isaac-900'),
-    10px 40px 0 0 theme('colors.isaac-900'), 15px 40px 0 0 theme('colors.isaac-900'),
-    20px 40px 0 0 theme('colors.isaac-900'), 25px 40px 0 0 theme('colors.isaac-900'),
-    30px 40px 0 0 theme('colors.isaac-900'), 35px 40px 0 0 theme('colors.isaac-900'),
-    40px 40px 0 0 theme('colors.isaac-900'), 45px 40px 0 0 theme('colors.isaac-900'),
-    50px 40px 0 0 theme('colors.isaac-900'), 55px 40px 0 0 theme('colors.isaac-900'),
-    60px 40px 0 0 theme('colors.isaac-900'), 5px 45px 0 0 theme('colors.isaac-900'),
-    10px 45px 0 0 theme('colors.isaac-900'), 15px 45px 0 0 theme('colors.isaac-900'),
-    20px 45px 0 0 theme('colors.isaac-900'), 25px 45px 0 0 theme('colors.isaac-900'),
-    30px 45px 0 0 theme('colors.isaac-900'), 35px 45px 0 0 theme('colors.isaac-900'),
-    40px 45px 0 0 theme('colors.isaac-900'), 5px 50px 0 0 theme('colors.isaac-900'),
-    10px 50px 0 0 theme('colors.isaac-900'), 15px 50px 0 0 theme('colors.isaac-900'),
-    20px 50px 0 0 theme('colors.isaac-900'), 25px 50px 0 0 theme('colors.isaac-900'),
-    30px 50px 0 0 theme('colors.isaac-900');
+  box-shadow: 25px 5px 0 0 theme("colors.isaac-900"),
+    30px 5px 0 0 theme("colors.isaac-900"),
+    35px 5px 0 0 theme("colors.isaac-900"),
+    25px 10px 0 0 theme("colors.isaac-900"),
+    30px 10px 0 0 theme("colors.isaac-900"),
+    35px 10px 0 0 theme("colors.isaac-900"),
+    40px 10px 0 0 theme("colors.isaac-900"),
+    20px 15px 0 0 theme("colors.isaac-900"),
+    25px 15px 0 0 theme("colors.isaac-900"),
+    30px 15px 0 0 theme("colors.isaac-900"),
+    35px 15px 0 0 theme("colors.isaac-900"),
+    40px 15px 0 0 theme("colors.isaac-900"),
+    45px 15px 0 0 theme("colors.isaac-900"),
+    50px 15px 0 0 theme("colors.isaac-900"),
+    55px 15px 0 0 theme("colors.isaac-900"),
+    20px 20px 0 0 theme("colors.isaac-900"),
+    25px 20px 0 0 theme("colors.isaac-900"),
+    30px 20px 0 0 theme("colors.isaac-900"),
+    35px 20px 0 0 theme("colors.isaac-900"),
+    40px 20px 0 0 theme("colors.isaac-900"),
+    45px 20px 0 0 theme("colors.isaac-900"),
+    50px 20px 0 0 theme("colors.isaac-900"),
+    55px 20px 0 0 theme("colors.isaac-900"),
+    60px 20px 0 0 theme("colors.isaac-900"),
+    65px 20px 0 0 theme("colors.isaac-900"),
+    70px 20px 0 0 theme("colors.isaac-900"),
+    15px 25px 0 0 theme("colors.isaac-900"),
+    20px 25px 0 0 theme("colors.isaac-900"),
+    25px 25px 0 0 theme("colors.isaac-900"),
+    30px 25px 0 0 theme("colors.isaac-900"),
+    35px 25px 0 0 theme("colors.isaac-900"),
+    40px 25px 0 0 theme("colors.isaac-900"),
+    45px 25px 0 0 theme("colors.isaac-900"),
+    50px 25px 0 0 theme("colors.isaac-900"),
+    55px 25px 0 0 theme("colors.isaac-900"),
+    60px 25px 0 0 theme("colors.isaac-900"),
+    65px 25px 0 0 theme("colors.isaac-900"),
+    70px 25px 0 0 theme("colors.isaac-900"),
+    75px 25px 0 0 theme("colors.isaac-900"),
+    10px 30px 0 0 theme("colors.isaac-900"),
+    15px 30px 0 0 theme("colors.isaac-900"),
+    20px 30px 0 0 theme("colors.isaac-900"),
+    25px 30px 0 0 theme("colors.isaac-900"),
+    30px 30px 0 0 theme("colors.isaac-900"),
+    35px 30px 0 0 theme("colors.isaac-900"),
+    40px 30px 0 0 theme("colors.isaac-900"),
+    45px 30px 0 0 theme("colors.isaac-900"),
+    50px 30px 0 0 theme("colors.isaac-900"),
+    55px 30px 0 0 theme("colors.isaac-900"),
+    60px 30px 0 0 theme("colors.isaac-900"),
+    65px 30px 0 0 theme("colors.isaac-900"),
+    70px 30px 0 0 theme("colors.isaac-900"),
+    75px 30px 0 0 theme("colors.isaac-900"),
+    10px 35px 0 0 theme("colors.isaac-900"),
+    15px 35px 0 0 theme("colors.isaac-900"),
+    20px 35px 0 0 theme("colors.isaac-900"),
+    25px 35px 0 0 theme("colors.isaac-900"),
+    30px 35px 0 0 theme("colors.isaac-900"),
+    35px 35px 0 0 theme("colors.isaac-900"),
+    40px 35px 0 0 theme("colors.isaac-900"),
+    45px 35px 0 0 theme("colors.isaac-900"),
+    50px 35px 0 0 theme("colors.isaac-900"),
+    55px 35px 0 0 theme("colors.isaac-900"),
+    60px 35px 0 0 theme("colors.isaac-900"),
+    65px 35px 0 0 theme("colors.isaac-900"),
+    70px 35px 0 0 theme("colors.isaac-900"),
+    10px 40px 0 0 theme("colors.isaac-900"),
+    15px 40px 0 0 theme("colors.isaac-900"),
+    20px 40px 0 0 theme("colors.isaac-900"),
+    25px 40px 0 0 theme("colors.isaac-900"),
+    30px 40px 0 0 theme("colors.isaac-900"),
+    35px 40px 0 0 theme("colors.isaac-900"),
+    40px 40px 0 0 theme("colors.isaac-900"),
+    45px 40px 0 0 theme("colors.isaac-900"),
+    50px 40px 0 0 theme("colors.isaac-900"),
+    55px 40px 0 0 theme("colors.isaac-900"),
+    60px 40px 0 0 theme("colors.isaac-900"),
+    5px 45px 0 0 theme("colors.isaac-900"),
+    10px 45px 0 0 theme("colors.isaac-900"),
+    15px 45px 0 0 theme("colors.isaac-900"),
+    20px 45px 0 0 theme("colors.isaac-900"),
+    25px 45px 0 0 theme("colors.isaac-900"),
+    30px 45px 0 0 theme("colors.isaac-900"),
+    35px 45px 0 0 theme("colors.isaac-900"),
+    40px 45px 0 0 theme("colors.isaac-900"),
+    5px 50px 0 0 theme("colors.isaac-900"),
+    10px 50px 0 0 theme("colors.isaac-900"),
+    15px 50px 0 0 theme("colors.isaac-900"),
+    20px 50px 0 0 theme("colors.isaac-900"),
+    25px 50px 0 0 theme("colors.isaac-900"),
+    30px 50px 0 0 theme("colors.isaac-900");
   height: 5px;
   width: 5px;
 }
