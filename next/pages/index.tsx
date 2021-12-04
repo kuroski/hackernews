@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const Spinner = () => (
   <svg
-    className="animate-spin -ml-1 mr-3 h-5 w-5 text-sonic-silver"
+    className="animate-spin -ml-1 mr-3 h-5 w-5 text-isaac-800"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
@@ -54,7 +54,7 @@ const Story = (props: StoryProps) => {
           <Link key={props.key} href={url}>
             {title}
           </Link>
-          <small className="text-xs md:text-sm text-sonic-silver">
+          <small className="text-xs md:text-sm text-isaac-800">
             {`- ${url.hostname}`}
           </small>
           {children}
@@ -126,7 +126,7 @@ const Home: NextPage = () => {
         <title>Hackernews</title>
       </Head>
       <div className="relative w-full max-w-2xl mx-auto flex flex-col items-center gap-4">
-        <div className="stories flex flex-col px-6 py-4 bg-lavender-blush border-sonic-silver border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
+        <div className="stories flex flex-col px-6 py-4 bg-isaac-500 border-isaac-800 border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
           <h1 className="text-xl md:text-3xl text-center mb-2">Top stories</h1>
 
           {stories.map((item) => (

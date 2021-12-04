@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "black-coffee": "#443838",
-        "sonic-silver": "#746f6c",
-        "silver-metallic": "#ada4a7",
-        "pale-silver": "#C7BCBA",
-        "lavender-blush": "#EDE1E5",
+        "isaac-900": "#443838",
+        "isaac-800": "#746f6c",
+        "isaac-700": "#ada4a7",
+        "isaac-600": "#C7BCBA",
+        "isaac-500": "#EDE1E5",
       },
       fontFamily: {
         bit: ["'Upheaval TT (BRK)'", "cursive"],
