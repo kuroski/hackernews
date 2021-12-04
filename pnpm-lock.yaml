@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@axe-core/react': ^4.3.2
   '@devexperts/remote-data-ts': ^2.1.1
   '@testing-library/jest-dom': ^5.14.1
   '@testing-library/react': ^12.1.2
@@ -13,6 +14,7 @@ specifiers:
   cross-fetch: ^3.1.4
   eslint: 8.0.1
   eslint-config-next: 11.1.2
+  eslint-plugin-jsx-a11y: ^6.5.1
   faker: ^5.5.3
   fluture: ^14.0.0
   fp-ts: ^2.11.5
@@ -55,6 +57,7 @@ dependencies:
   tailwindcss: 2.2.19_4b1e31a40989f794ea4cb82b0b45f5de
 
 devDependencies:
+  '@axe-core/react': 4.3.2
   '@testing-library/jest-dom': 5.15.0
   '@testing-library/react': 12.1.2_react-dom@17.0.2+react@17.0.2
   '@testing-library/react-hooks': 7.0.2_fc2bb8a5b006d3f25c5f84ea777e678d
@@ -64,6 +67,7 @@ devDependencies:
   babel-jest: 27.3.1
   eslint: 8.0.1
   eslint-config-next: 11.1.2_3ddad0d668ac59a00eaf214ed705e0a5
+  eslint-plugin-jsx-a11y: 6.5.1_eslint@8.0.1
   faker: 5.5.3
   identity-obj-proxy: 3.0.0
   jest: 27.3.1_ts-node@10.4.0
@@ -73,6 +77,13 @@ devDependencies:
   typescript: 4.4.4
 
 packages:
+
+  /@axe-core/react/4.3.2:
+    resolution: {integrity: sha512-LSMydcQFFZrqiIqalgywVzHs3paLV6aQHKCba2F7kYWFTpqc/OvQ71NIPkjYY+oF06DgA4ucS2MrcYGbgx8kJg==}
+    dependencies:
+      axe-core: 4.3.5
+      requestidlecallback: 0.3.0
+    dev: true
 
   /@babel/code-frame/7.12.11:
     resolution: {integrity: sha512-Zt1yodBx1UcyiePMSkWnU4hPqhwq7hGi2nFL1LeA3EUl+q2LQx16MISgJ0+z7dnmgvP9QtIleuETGOiOH1RcIw==}
@@ -5245,6 +5256,10 @@ packages:
   /regexpp/3.2.0:
     resolution: {integrity: sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==}
     engines: {node: '>=8'}
+    dev: true
+
+  /requestidlecallback/0.3.0:
+    resolution: {integrity: sha1-b7dOBzP5DfP6pIOPn2oqX5t0KsU=}
     dev: true
 
   /require-directory/2.1.1:

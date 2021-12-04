@@ -5,6 +5,9 @@ import * as RD from "@devexperts/remote-data-ts";
 import { fetchErrorToString } from "@framework/fetch";
 import { useStories } from "@framework/react/hooks";
 import * as I from "@framework/Item";
+import React from "react";
+import Head from "next/head";
+import Link from "next/link";
 
 const Spinner = () => (
   <svg
@@ -30,6 +33,7 @@ const Spinner = () => (
 );
 
 type StoryProps = {
+  key: string;
   item: I.Item;
 };
 
@@ -39,32 +43,46 @@ const Story = (props: StoryProps) => {
     O.getOrElse(() => "-")
   );
 
-  const url = pipe(
-    props.item.url,
-    O.map((url) => (
-      <a key={url.toString()} href={url.toString()}>
-        {url.toString()}
-      </a>
-    )),
-    O.getOrElse(() => <></>)
-  );
+  const StoryBase = ({ children }: { children: React.ReactNode }) =>
+    pipe(
+      props.item.url,
+      O.map((url) => (
+        <section
+          key={props.key}
+          className="flex flex-col p-2 m-2 text-xl md:text-3xl leading-none outline-none"
+        >
+          <Link key={props.key} href={url}>
+            {title}
+          </Link>
+          <small className="text-xs md:text-sm text-sonic-silver">
+            {`- ${url.hostname}`}
+          </small>
+          {children}
+        </section>
+      )),
+      O.getOrElse(() => (
+        <section
+          key={props.key}
+          className="flex flex-col p-2 m-2 text-xl md:text-3xl leading-none"
+        >
+          <span>{title}</span>
+          {children}
+        </section>
+      ))
+    );
 
   return pipe(
     props.item,
     I.fold(
       () => (
-        <div className="flex flex-col p-2 m-2 text-2xl leading-none">
-          <span>{title}</span>
-          <small className="text-sm text-silver-metallic">{url}</small>
+        <StoryBase>
           <small>story</small>
-        </div>
+        </StoryBase>
       ),
       () => (
-        <div className="flex flex-col p-2 m-2 text-2xl leading-none">
-          <span>{title}</span>
-          <small className="text-sm text-silver-metallic">{url}</small>
+        <StoryBase>
           <small>job</small>
-        </div>
+        </StoryBase>
       )
     )
   );
@@ -77,7 +95,11 @@ const Home: NextPage = () => {
     remoteData,
     RD.fold(
       () => <div>Nothing loaded yet</div>,
-      () => <Spinner />,
+      () => (
+        <div className="self-center">
+          <Spinner />
+        </div>
+      ),
       (err) => <div>{fetchErrorToString(err)}</div>,
       (_result) =>
         pipe(
@@ -85,7 +107,11 @@ const Home: NextPage = () => {
           O.match(
             () => <div>All loaded up =D</div>,
             (next) => (
-              <button key="load-more" onClick={next} className="button">
+              <button
+                key="load-more"
+                onClick={next}
+                className="button self-center"
+              >
                 Load More
               </button>
             )
@@ -95,16 +121,21 @@ const Home: NextPage = () => {
   );
 
   return (
-    <div className="relative w-full max-w-xl mx-auto flex flex-col items-center gap-4">
-      {stories.length > 0 && (
-        <div className="stories px-6 bg-lavender-blush border-sonic-silver border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
+    <div>
+      <Head>
+        <title>Hackernews</title>
+      </Head>
+      <div className="relative w-full max-w-2xl mx-auto flex flex-col items-center gap-4">
+        <div className="stories flex flex-col px-6 py-4 bg-lavender-blush border-sonic-silver border-4 rounded-paper shadow divide-y divide-gray-200 divide-solid">
+          <h1 className="text-xl md:text-3xl text-center mb-2">Top stories</h1>
+
           {stories.map((item) => (
             <Story key={item.id.toString()} item={item} />
           ))}
-        </div>
-      )}
 
-      {loadMoreButton}
+          {loadMoreButton}
+        </div>
+      </div>
     </div>
   );
 };

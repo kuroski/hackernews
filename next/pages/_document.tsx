@@ -14,7 +14,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en-us">
         <Head>
           <link
             rel="preload"
@@ -30,7 +30,9 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <Main />
+          <main>
+            <Main />
+          </main>
           <NextScript />
         </body>
       </Html>
