@@ -21,11 +21,18 @@ body {
 }
 
 .button {
-  @apply flex-shrink-0 bg-lavender-blush border-sonic-silver border-4 text-base font-semibold py-1 px-2 rounded-xl shadow-md transition hover:bg-silver-metallic focus:outline-none focus:ring-2 focus:ring-sonic-silver focus:ring-offset-2 focus:ring-offset-purple-200;
+  @apply relative flex-shrink-0 border-4 text-base font-semibold py-1 px-4 transition focus:outline-none focus:ring-2 focus:ring-sonic-silver focus:ring-offset-2 focus:ring-offset-purple-200;
 }
 
 .stories > section {
   @apply relative;
+}
+
+
+.button::before,
+.button::before {
+  content: "";
+  @apply opacity-0 transition-opacity outline-none absolute -right-2 top-4 transform scale-20 rotate-160;
 }
 
 .stories > section::before,
@@ -33,14 +40,16 @@ body {
 .stories > section > a::before,
 .stories > section > a::before {
   content: "";
-  @apply opacity-0 transition-opacity outline-none;
+  @apply opacity-0 transition-opacity outline-none absolute -left-6 top-4 transform scale-30;
 }
 
 .stories > section:hover::before,
 .stories > section:focus::before,
 .stories > section > a:hover::before,
-.stories > section > a:focus::before {
-  @apply opacity-100 absolute -left-6 top-4 transform scale-30;
+.stories > section > a:focus::before,
+.button:focus::before,
+.button:hover::before {
+  @apply opacity-100;
   box-shadow: 25px 5px 0 0 theme('colors.black-coffee'), 30px 5px 0 0 theme('colors.black-coffee'),
     35px 5px 0 0 theme('colors.black-coffee'), 25px 10px 0 0 theme('colors.black-coffee'),
     30px 10px 0 0 theme('colors.black-coffee'), 35px 10px 0 0 theme('colors.black-coffee'),

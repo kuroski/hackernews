@@ -76,12 +76,12 @@ const Story = (props: StoryProps) => {
     I.fold(
       () => (
         <StoryBase>
-          <small>story</small>
+          <div className="text-xs">story</div>
         </StoryBase>
       ),
       () => (
         <StoryBase>
-          <small>job</small>
+          <div className="text-xs">job</div>
         </StoryBase>
       )
     )
