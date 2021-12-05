@@ -20,10 +20,28 @@ module.exports = {
       scale: {
         20: "0.20",
         30: "0.30",
-        230: "2.30",
+        180: "1.80",
+        260: "2.60",
       },
       rotate: {
         160: "160deg",
+      },
+      animation: {
+        "fade-up": "fadeUp 150ms ease-in-out forwards",
+      },
+      keyframes: {
+        fadeUp: {
+          "0%": {
+            opacity: 0,
+            transform: "translateY(15%)",
+            timing: "cubic-bezier(0.8, 0, 1, 1)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateY(0%)",
+            timing: "cubic-bezier(0, 0, 0.2, 1)",
+          },
+        },
       },
     },
   },

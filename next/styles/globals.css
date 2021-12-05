@@ -21,19 +21,19 @@ body {
 }
 
 .button {
-  @apply relative flex-shrink-0 text-base font-semibold py-1 px-4 transition focus:outline-none focus:ring-2 focus:ring-isaac-800 focus:ring-offset-2 focus:ring-offset-purple-200;
+  @apply relative flex-shrink-0 text-base font-semibold py-1 px-4 transition;
 }
 
 .stories {
-  @apply w-full flex flex-col px-6 py-4 bg-isaac-500 border-isaac-800 border-4 rounded-paper shadow;
+  @apply w-full flex flex-col gap-4 md:gap-6 px-6 py-4 bg-isaac-500 border-isaac-800 border-4 rounded-paper shadow;
 }
 
 .stories > h1 {
-  @apply relative text-xl md:text-3xl text-center mb-2;
+  @apply relative text-2xl md:text-4xl text-center mb-2;
 }
 
 .stories > h1::before {
-  @apply absolute bottom-3 transform -translate-x-4 scale-x-230 opacity-30;
+  @apply absolute bottom-3 transform -translate-x-4 scale-x-180 md:scale-x-260 opacity-30;
   content: "";
   box-shadow: 90px 5px 0 0 rgba(158, 152, 154, 1),
     95px 5px 0 0 rgba(158, 152, 154, 1), 100px 5px 0 0 rgba(158, 152, 154, 1),
@@ -63,8 +63,12 @@ body {
   width: 5px;
 }
 
-.stories > section {
-  @apply relative flex flex-col p-2 m-2 text-xl md:text-3xl leading-none outline-none;
+.stories > div {
+  @apply opacity-0 animate-fade-up;
+}
+
+.stories > div > section {
+  @apply relative flex flex-col px-2 mx-2 text-xl md:text-3xl leading-none outline-none;
 }
 
 .button::before,
@@ -73,18 +77,18 @@ body {
   @apply opacity-0 transition-opacity outline-none absolute -right-2 top-4 transform scale-20 rotate-160;
 }
 
-.stories > section::before,
-.stories > section::before,
-.stories > section > a::before,
-.stories > section > a::before {
+.stories > div > section::before,
+.stories > div > section::before,
+.stories > div > section > a::before,
+.stories > div > section > a::before {
   content: "";
-  @apply opacity-0 transition-opacity outline-none absolute -left-6 top-4 transform scale-30;
+  @apply opacity-0 transition-opacity outline-none absolute -left-6 top-0 md:top-2 transform scale-30;
 }
 
-.stories > section:hover::before,
-.stories > section:focus::before,
-.stories > section > a:hover::before,
-.stories > section > a:focus::before,
+.stories > div > section:hover::before,
+.stories > div > section:focus::before,
+.stories > div > section > a:hover::before,
+.stories > div > section > a:focus::before,
 .button:focus::before,
 .button:hover::before {
   @apply opacity-100;

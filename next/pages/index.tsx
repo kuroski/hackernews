@@ -33,7 +33,7 @@ const Spinner = () => (
 );
 
 type StoryProps = {
-  key: string;
+  id: string;
   item: I.Item;
 };
 
@@ -47,18 +47,16 @@ const Story = (props: StoryProps) => {
     pipe(
       props.item.url,
       O.map((url) => (
-        <section key={props.key}>
-          <Link key={props.key} href={url}>
-            {title}
-          </Link>
-          <small className="text-xs md:text-sm text-isaac-800">
+        <section key={props.id}>
+          <Link href={url}>{title}</Link>
+          <small className="text-xs md:text-sm opacity-80">
             {`- ${url.hostname}`}
           </small>
           {children}
         </section>
       )),
       O.getOrElse(() => (
-        <section key={props.key}>
+        <section key={props.id}>
           <span>{title}</span>
           {children}
         </section>
@@ -83,7 +81,8 @@ const Story = (props: StoryProps) => {
 };
 
 const Home: NextPage = () => {
-  const { remoteData, stories, loadMore } = useStories(10);
+  const PER_PAGE = 10;
+  const { remoteData, stories, loadMore } = useStories(PER_PAGE);
 
   const loadMoreButton = pipe(
     remoteData,
@@ -123,8 +122,15 @@ const Home: NextPage = () => {
         <div className="stories">
           <h1>Top stories</h1>
 
-          {stories.map((item) => (
-            <Story key={item.id.toString()} item={item} />
+          {stories.map((item, index) => (
+            <div
+              key={item.id.toString()}
+              style={{
+                animationDelay: `${100 * (index % PER_PAGE)}ms`,
+              }}
+            >
+              <Story id={item.id.toString()} item={item} />
+            </div>
           ))}
 
           {loadMoreButton}
