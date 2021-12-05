@@ -18,7 +18,7 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/upheavaltt/UpheavalTT-BRK.ttf"
+            href="/fonts/upheavaltt/UpheavalTT-BRK-.ttf"
             as="font"
             crossOrigin=""
           />
