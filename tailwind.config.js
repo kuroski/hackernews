@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  purge: [
+    "./next/pages/**/*.{js,ts,jsx,tsx}",
+    "./next/components/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
