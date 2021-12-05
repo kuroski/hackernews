@@ -22,12 +22,10 @@ class MyDocument extends Document {
             as="font"
             crossOrigin=""
           />
-          <link
-            rel="preload"
-            href="/fonts/upheavaltt/UpheavalTT-BRK.ttf"
-            as="font"
-            crossOrigin=""
-          />
+          <meta
+            name="description"
+            content="A study app for usage of fp-ts library."
+          ></meta>
         </Head>
         <body>
           <main>
