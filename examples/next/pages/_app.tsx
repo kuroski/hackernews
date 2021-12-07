@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 
 // Determines if we are running on server or in client.
 const isServerSideRendered = () => {
+  // eslint-disable-next-line no-restricted-globals
   return typeof window === "undefined";
 };
 
