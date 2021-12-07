@@ -1,9 +1,51 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:jsx-a11y/recommended"
-  ],
+  "root": true,
+  "parser": "@typescript-eslint/parser",
   "plugins": [
-    "jsx-a11y"
+    "@typescript-eslint",
+    "jest"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-restricted-globals": [
+      "error",
+      "window",
+      "document",
+      "module",
+      "require"
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/**"
+      ],
+      "rules": {
+        "no-restricted-globals": "off",
+        "no-restricted-syntax": "off"
+      }
+    }
   ]
 }

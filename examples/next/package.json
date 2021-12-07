@@ -1,0 +1,29 @@
+{
+  "name": "@kuroski-hackernrews/next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@devexperts/remote-data-ts": "^2.1.1",
+    "autoprefixer": "^10.4.0",
+    "fp-ts": "^2.11.5",
+    "next": "12",
+    "pattern-matching-ts": "^2.0.0",
+    "postcss": "^8.4.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "tailwindcss": "^2.2.19",
+    "@framework": "@kuroski-hackernrews/framework"
+  },
+  "devDependencies": {
+    "@axe-core/react": "^4.3.2",
+    "@types/react": "17.0.31",
+    "eslint-config-next": "11.1.2",
+    "eslint-plugin-jsx-a11y": "^6.5.1"
+  }
+}
