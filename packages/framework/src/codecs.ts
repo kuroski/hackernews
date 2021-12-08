@@ -2,7 +2,7 @@ import { pipe } from "fp-ts/lib/function";
 import * as E from "fp-ts/lib/Either";
 import * as t from "io-ts";
 
-export interface URLFromStringC extends t.Type<typeof URL, string, unknown> {}
+export type URLFromStringC = t.Type<typeof URL, string, unknown>;
 
 export const URLFromString = new t.Type<URL, string, unknown>(
   "url",

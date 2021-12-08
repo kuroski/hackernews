@@ -1,7 +1,7 @@
 import * as t from "io-ts";
 import * as E from "fp-ts/Either";
 
-interface ListIdBrand {
+export interface ListIdBrand {
   readonly ListId: unique symbol;
 }
 

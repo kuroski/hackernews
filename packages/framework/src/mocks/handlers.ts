@@ -16,12 +16,13 @@ const listHandler = (
   cb: ResponseResolver<
     RestRequest<DefaultRequestBody, RequestParams>,
     RestContext,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     any
   >
 ) => rest.get(LIST_ENDPOINTS.topStories.toString(), cb);
 
 export const mockSuccessListRequest = (
-  overrides?: (req: RestRequest<DefaultRequestBody, RequestParams>) => TList
+  overrides?: (_req: RestRequest<DefaultRequestBody, RequestParams>) => TList
 ) =>
   listHandler((req, res, ctx) =>
     res(
@@ -48,13 +49,14 @@ const itemHandler = (
   cb: ResponseResolver<
     RestRequest<DefaultRequestBody, RequestParams>,
     RestContext,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     any
   >
 ) => rest.get("https://hacker-news.firebaseio.com/v0/item/:storyId.json", cb);
 
 export const mockSuccessItemRequest = (
   overrides?: (
-    req: RestRequest<DefaultRequestBody, RequestParams>
+    _req: RestRequest<DefaultRequestBody, RequestParams>
   ) => Partial<Record<keyof TItem, unknown>>
 ) =>
   itemHandler((req, res, ctx) =>

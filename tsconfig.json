@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es5",
+    "target": "ESNext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -17,18 +17,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "paths": {
-      "@framework/*": [
-        "./packages/framework/src/*"
-      ]
-    }
+    "jsx": "preserve"
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ],
   "exclude": [
-    "node_modules"
-  ]
+    "node_modules",
+    "**/*/dist",
+    "**/*.test.ts"
+  ],
 }

@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "noEmit": false,
+    "paths": {
+      "@framework/*": [
+        "./packages/framework/src/*"
+      ]
+    },
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+}

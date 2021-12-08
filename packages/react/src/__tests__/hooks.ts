@@ -1,10 +1,9 @@
 import { act, renderHook } from "@testing-library/react-hooks";
-import { useStories } from "@framework/react/hooks";
+import { useStories } from "../hooks";
 import * as RD from "@devexperts/remote-data-ts";
 import * as O from "fp-ts/lib/Option";
 import { server } from "@framework/mocks/server";
 import {
-  mockBadItemRequest,
   mockSuccessItemRequest,
   mockSuccessListRequest,
 } from "@framework/mocks/handlers";

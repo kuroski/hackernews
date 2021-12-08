@@ -1,8 +1,8 @@
 import { pipe } from "fp-ts/lib/function";
 import * as TE from "fp-ts/lib/TaskEither";
-import { ListId } from "@framework/List";
-import customFetch, { FetchError, mapTDecoded } from "@framework/fetch";
-import { fromTItem, TItem, Item } from "@framework/Item";
+import { ListId } from "../List";
+import customFetch, { FetchError, mapTDecoded } from "../fetch";
+import { fromTItem, TItem, Item } from "./Item";
 
 export const ENDPOINTS = {
   story: (id: ListId) =>

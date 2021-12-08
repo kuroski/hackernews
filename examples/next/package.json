@@ -1,5 +1,5 @@
 {
-  "name": "@kuroski-hackernrews/next",
+  "name": "@kuroski-hackernews/next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,7 +18,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "tailwindcss": "^2.2.19",
-    "@framework": "@kuroski-hackernrews/framework"
+    "@kuroski-hackernews/framework": "*",
+    "@kuroski-hackernews/react": "*"
   },
   "devDependencies": {
     "@axe-core/react": "^4.3.2",
