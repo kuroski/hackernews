@@ -4,8 +4,6 @@ import * as T from "fp-ts/lib/Task";
 import * as O from "fp-ts/lib/Option";
 import * as TE from "fp-ts/lib/TaskEither";
 import { server } from "@framework/mocks/server";
-import { rest } from "msw";
-import { ENDPOINTS } from "@framework/List";
 import { fetchErrorToString } from "@framework/fetch";
 import {
   mockBadItemRequest,
@@ -14,6 +12,7 @@ import {
 } from "@framework/mocks/handlers";
 
 describe("hackernews API", () => {
+  // eslint-disable-next-line jest/no-done-callback
   it("lists the best stories", (done) => {
     server.use(
       mockSuccessListRequest((_req) => [76686866, 67829238]),
@@ -115,6 +114,7 @@ Array [
     )();
   });
 
+  // eslint-disable-next-line jest/no-done-callback
   it("handles stories fetch errors", (done) => {
     server.use(
       mockSuccessListRequest((_req) => [76686866, 67829238]),

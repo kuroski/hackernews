@@ -1,12 +1,13 @@
-import { LoadList, topStories } from "@framework/hackernews";
+import { topStories } from "@kuroski-hackernews/framework";
+import { LoadList } from "@kuroski-hackernews/framework/src/hackernews";
+import { Item } from "@kuroski-hackernews/framework/src/Item";
+import { FetchError } from "@kuroski-hackernews/framework/src/fetch";
 import { useCallback, useEffect, useState } from "react";
 import * as T from "fp-ts/lib/Task";
 import * as O from "fp-ts/lib/Option";
 import * as TE from "fp-ts/lib/TaskEither";
 import { pipe } from "fp-ts/lib/function";
-import { Item } from "@framework/Item";
 import * as RD from "@devexperts/remote-data-ts";
-import { FetchError } from "@framework/fetch";
 
 export const useStories = (storiesPerPage = 10) => {
   const [remoteData, setRemoteData] = useState<

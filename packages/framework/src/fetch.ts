@@ -107,7 +107,7 @@ const customFetch = <Codec extends t.Mixed>(decoder: Codec) => {
  * is different from what you want to use in your application
  */
 export const mapTDecoded = <T, R>(
-  transformFn: (tcodec: T) => E.Either<t.Errors, R>
+  transformFn: (_tcodec: T) => E.Either<t.Errors, R>
 ) =>
   TE.chain<FetchError, T, R>(
     flow(transformFn, E.mapLeft(toDecodingError), TE.fromEither)

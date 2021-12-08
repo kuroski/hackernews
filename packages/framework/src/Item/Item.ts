@@ -3,8 +3,8 @@ import * as t from "io-ts";
 import * as tt from "io-ts-types";
 import * as E from "fp-ts/Either";
 import { Eq, fromEquals } from "fp-ts/lib/Eq";
-import { URLFromString, withDefault } from "@framework/codecs";
-import { TList } from "@framework/List";
+import { URLFromString, withDefault } from "../codecs";
+import { TList } from "../List";
 
 // #region Id brand
 interface ItemIdBrand {
@@ -70,9 +70,9 @@ export function getEq(): Eq<Item> {
 
 // #region destructors
 export function fold<R>(
-  onItemStory: (story: ItemStory) => R,
-  onItemJob: (job: ItemJob) => R
-): (fa: Item) => R {
+  onItemStory: (_story: ItemStory) => R,
+  onItemJob: (_job: ItemJob) => R
+): (_fa: Item) => R {
   return (fa) => {
     switch (fa._tag) {
       case "ItemStory":
