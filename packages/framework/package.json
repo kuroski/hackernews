@@ -1,40 +1,40 @@
 {
-  "name": "@kuroski-hackernews/framework",
-  "version": "1.0.0",
-  "description": "",
   "author": "",
-  "license": "ISC",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
-  "files": [
-    "/dist"
-  ],
-  "scripts": {
-    "test": "jest",
-    "test:ci": "jest --ci"
-  },
   "dependencies": {
     "@devexperts/remote-data-ts": "^2.1.1",
     "cross-fetch": "^3.1.4",
-    "fluture": "^14.0.0",
     "fp-ts": "^2.11.5",
-    "fp-ts-fluture": "^0.6.5",
-    "fp-ts-std": "^0.11.0",
     "io-ts": "^2.2.16",
     "io-ts-types": "^0.5.16",
-    "monocle-ts": "^2.3.11",
-    "newtype-ts": "^0.3.4",
-    "pattern-matching-ts": "^2.0.0"
+    "monocle-ts": "^2.3.11"
   },
+  "description": "",
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
-    "@testing-library/jest-dom": "^5.14.1",
     "@types/faker": "^5.5.9",
     "@types/jest": "^27.0.2",
     "babel-jest": "^27.3.1",
+    "esbuild": "^0.14.2",
+    "esno": "^0.12.1",
     "faker": "^5.5.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
-    "msw": "^0.35.0"
-  }
+    "msw": "^0.35.0",
+    "rimraf": "^3.0.2",
+    "typescript": "4.4.4"
+  },
+  "files": [
+    "/dist"
+  ],
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "name": "@kuroski-hackernews/framework",
+  "scripts": {
+    "build": "rimraf dist && esno scripts/build.ts && tsc ./src/index.ts --declaration --emitDeclarationOnly --outfile dist/index.d.ts",
+    "test": "jest",
+    "test:ci": "jest --ci"
+  },
+  "typings": "src/index.d.ts",
+  "version": "1.0.0"
 }
