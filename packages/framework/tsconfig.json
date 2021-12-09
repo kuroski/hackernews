@@ -3,16 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist/",
-    "declaration": true,
-    "noEmit": false,
     "paths": {
       "@framework/*": [
         "./src/*"
       ]
-    },
-  },
-  "include": [
-    "./**/*.ts",
-    "./**/*.tsx"
-  ]
+    }
+  }
 }
