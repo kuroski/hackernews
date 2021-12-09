@@ -12,29 +12,32 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
     "@types/faker": "^5.5.9",
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.0.3",
     "babel-jest": "^27.3.1",
     "esbuild": "^0.14.2",
+    "esmo": "^0.12.1",
     "esno": "^0.12.1",
     "faker": "^5.5.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
     "msw": "^0.35.0",
     "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.1",
     "typescript": "4.4.4"
   },
+  "exports": "./dist/index.js",
   "files": [
     "/dist"
   ],
   "license": "ISC",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "module": "./dist/index.esm.js",
   "name": "@kuroski-hackernews/framework",
   "scripts": {
-    "build": "rimraf dist && esno scripts/build.ts && tsc ./src/index.ts --declaration --emitDeclarationOnly --outfile dist/index.d.ts",
+    "build": "rimraf dist && esmo scripts/build.ts && tsc ./src/index.ts --declaration --emitDeclarationOnly --outfile dist/index.d.ts",
     "test": "jest",
     "test:ci": "jest --ci"
   },
+  "type": "module",
   "typings": "src/index.d.ts",
   "version": "1.0.0"
 }
