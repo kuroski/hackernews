@@ -1,5 +1,5 @@
-import { pipe } from "fp-ts/lib/function";
-import * as E from "fp-ts/lib/Either";
+import { pipe } from "fp-ts/function";
+import * as E from "fp-ts/Either";
 import * as t from "io-ts";
 
 export type URLFromStringC = t.Type<typeof URL, string, unknown>;

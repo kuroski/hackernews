@@ -1,11 +1,11 @@
 import { fetch as crossFetch } from "cross-fetch";
 import * as t from "io-ts";
 
-import * as E from "fp-ts/lib/Either";
-import * as TE from "fp-ts/lib/TaskEither";
+import * as E from "fp-ts/Either";
+import * as TE from "fp-ts/TaskEither";
 
 import { failure } from "io-ts/lib/PathReporter";
-import { flow, pipe } from "fp-ts/lib/function";
+import { flow, pipe } from "fp-ts/function";
 
 // #region Error handling
 

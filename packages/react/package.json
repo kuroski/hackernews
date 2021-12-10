@@ -4,15 +4,21 @@
   "description": "",
   "author": "",
   "license": "ISC",
-  "main": "src/hooks.ts",
-  "types": "src/hooks.ts",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/react/src/hooks.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
+    "build": "rimraf dist && esmo scripts/build.ts && tsc --declaration --emitDeclarationOnly --outdir dist",
     "test": "jest",
     "test:ci": "jest --ci"
   },
   "dependencies": {
-    "@kuroski-hackernews/framework": "*",
     "@devexperts/remote-data-ts": "^2.1.1",
+    "@kuroski-hackernews/framework": "workspace:*",
     "fp-ts": "^2.11.5",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -24,8 +30,14 @@
     "@types/jest": "^27.0.2",
     "@types/react": "17.0.31",
     "babel-jest": "^27.3.1",
+    "esbuild": "^0.14.2",
+    "esbuild-node-externals": "^1.4.1",
+    "esmo": "^0.12.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
-    "react-test-renderer": "^17.0.2"
+    "react-test-renderer": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.1",
+    "typescript": "4.4.4"
   }
 }

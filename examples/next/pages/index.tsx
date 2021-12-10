@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import * as O from "fp-ts/lib/Option";
-import { pipe } from "fp-ts/lib/function";
+import * as O from "fp-ts/Option";
+import { pipe } from "fp-ts/function";
 import * as RD from "@devexperts/remote-data-ts";
 import { useStories } from "@kuroski-hackernews/react";
 import { Item as I, fetchErrorToString } from "@kuroski-hackernews/framework";

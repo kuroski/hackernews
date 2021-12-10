@@ -2,7 +2,7 @@ import { Prism } from "monocle-ts";
 import * as t from "io-ts";
 import * as tt from "io-ts-types";
 import * as E from "fp-ts/Either";
-import { Eq, fromEquals } from "fp-ts/lib/Eq";
+import { Eq, fromEquals } from "fp-ts/Eq";
 import { URLFromString, withDefault } from "../codecs";
 import { TList } from "../List";
 
