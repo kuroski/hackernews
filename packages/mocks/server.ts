@@ -1,6 +1,6 @@
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import { handlers } from "@framework/mocks/handlers";
+import { handlers } from "./handlers";
 
 const server = setupServer(...handlers);
 

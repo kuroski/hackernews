@@ -5,9 +5,8 @@ import * as T from "fp-ts/Task";
 import { FetchError, toDecodingError } from "@framework/fetch";
 import { fromTListItem, TListItem } from "@framework/List";
 import { pipe } from "fp-ts/function";
-import { server } from "@framework/mocks/server";
+import { server, mockSuccessItemRequest } from "@kuroski-hackernews/mocks";
 import { error } from "fp-ts/Console";
-import { mockSuccessItemRequest } from "@framework/mocks/handlers";
 
 describe("Item: api", () => {
   it("Resolves reddit lists request", async () => {

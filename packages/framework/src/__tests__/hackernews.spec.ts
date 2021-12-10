@@ -3,13 +3,13 @@ import { pipe } from "fp-ts/function";
 import * as T from "fp-ts/Task";
 import * as O from "fp-ts/Option";
 import * as TE from "fp-ts/TaskEither";
-import { server } from "@framework/mocks/server";
-import { fetchErrorToString } from "@framework/fetch";
 import {
+  server,
   mockBadItemRequest,
   mockSuccessItemRequest,
   mockSuccessListRequest,
-} from "@framework/mocks/handlers";
+} from "@kuroski-hackernews/mocks";
+import { fetchErrorToString } from "@framework/fetch";
 
 describe("hackernews API", () => {
   // eslint-disable-next-line jest/no-done-callback
