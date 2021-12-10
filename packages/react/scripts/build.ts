@@ -2,7 +2,7 @@ import { build, BuildOptions } from "esbuild";
 import { nodeExternalsPlugin } from "esbuild-node-externals";
 
 const config: BuildOptions = {
-  entryPoints: ["src/hooks.ts"],
+  entryPoints: ["src/index.ts"],
   bundle: true,
   sourcemap: true,
   plugins: [nodeExternalsPlugin()],
@@ -10,11 +10,12 @@ const config: BuildOptions = {
 
 build({
   ...config,
-  outfile: "dist/index.js",
+  outfile: "dist/cjs/index.cjs.js",
+  format: "cjs",
 });
 
 build({
   ...config,
-  outfile: "dist/index.esm.js",
+  outfile: "dist/esm/index.esm.js",
   format: "esm",
 });

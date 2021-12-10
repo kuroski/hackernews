@@ -73,7 +73,6 @@ importers:
       cross-fetch: ^3.1.4
       esbuild: ^0.14.2
       esbuild-node-externals: ^1.4.1
-      esmo: ^0.12.1
       esno: ^0.12.1
       faker: ^5.5.3
       fp-ts: ^2.11.5
@@ -102,11 +101,10 @@ importers:
       babel-jest: 27.4.2_@babel+core@7.16.0
       esbuild: 0.14.2
       esbuild-node-externals: 1.4.1_esbuild@0.14.2
-      esmo: 0.12.1_typescript@4.4.4
       esno: 0.12.1_typescript@4.4.4
       faker: 5.5.3
       identity-obj-proxy: 3.0.0
-      jest: 27.4.3_ts-node@10.4.0
+      jest: 27.4.3
       msw: 0.35.0
       rimraf: 3.0.2
       ts-jest: 27.1.1_8c80224a264f0f10dc58f9d0c2a628e5
@@ -124,7 +122,7 @@ importers:
       babel-jest: ^27.3.1
       esbuild: ^0.14.2
       esbuild-node-externals: ^1.4.1
-      esmo: ^0.12.1
+      esno: ^0.12.1
       fp-ts: ^2.11.5
       identity-obj-proxy: ^3.0.0
       jest: ^27.3.1
@@ -137,6 +135,7 @@ importers:
     dependencies:
       '@devexperts/remote-data-ts': 2.1.1_fp-ts@2.11.5
       '@kuroski-hackernews/framework': link:../framework
+      esno: 0.12.1_typescript@4.4.4
       fp-ts: 2.11.5
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -149,7 +148,6 @@ importers:
       babel-jest: 27.4.2
       esbuild: 0.14.2
       esbuild-node-externals: 1.4.1_esbuild@0.14.2
-      esmo: 0.12.1_typescript@4.4.4
       identity-obj-proxy: 3.0.0
       jest: 27.4.3_ts-node@10.4.0
       react-test-renderer: 17.0.2_react@17.0.2
@@ -754,6 +752,51 @@ packages:
       jest-message-util: 27.4.2
       jest-util: 27.4.2
       slash: 3.0.0
+    dev: true
+
+  /@jest/core/27.4.3:
+    resolution: {integrity: sha512-V9ms3zSxUHxh1E/ZLAiXF7SLejsdFnjWTFizWotMOWvjho0lW5kSjZymhQSodNW0T0ZMQRiha7f8+NcFVm3hJQ==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    peerDependencies:
+      node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
+    peerDependenciesMeta:
+      node-notifier:
+        optional: true
+    dependencies:
+      '@jest/console': 27.4.2
+      '@jest/reporters': 27.4.2
+      '@jest/test-result': 27.4.2
+      '@jest/transform': 27.4.2
+      '@jest/types': 27.4.2
+      '@types/node': 16.11.12
+      ansi-escapes: 4.3.2
+      chalk: 4.1.2
+      emittery: 0.8.1
+      exit: 0.1.2
+      graceful-fs: 4.2.8
+      jest-changed-files: 27.4.2
+      jest-config: 27.4.3
+      jest-haste-map: 27.4.2
+      jest-message-util: 27.4.2
+      jest-regex-util: 27.4.0
+      jest-resolve: 27.4.2
+      jest-resolve-dependencies: 27.4.2
+      jest-runner: 27.4.3
+      jest-runtime: 27.4.2
+      jest-snapshot: 27.4.2
+      jest-util: 27.4.2
+      jest-validate: 27.4.2
+      jest-watcher: 27.4.2
+      micromatch: 4.0.4
+      rimraf: 3.0.2
+      slash: 3.0.0
+      strip-ansi: 6.0.1
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - ts-node
+      - utf-8-validate
     dev: true
 
   /@jest/core/27.4.3_ts-node@10.4.0:
@@ -2099,7 +2142,6 @@ packages:
     resolution: {integrity: sha512-qC0E2Dxgou1IHhvJSLwGDSTvokbRovU5zZFuDY6oY8Y2lF3nGt5Ad8YZK7GMtqzY84Wu7pXTPeHQeHcXSXsRhw==}
     dependencies:
       semver: 7.3.5
-    dev: true
 
   /bytes/3.1.0:
     resolution: {integrity: sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==}
@@ -2413,7 +2455,6 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
-    dev: true
 
   /crypto-browserify/3.12.0:
     resolution: {integrity: sha512-fz4spIh+znjO2VjL+IdhEpRJ3YN6sMzITSBijk6FK2UvTqruSQW+/cCZTSNsMiZNvUeq0CqurF+dAbyiGOY6Wg==}
@@ -2763,7 +2804,6 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-android-arm64/0.14.2:
@@ -2779,7 +2819,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-darwin-64/0.14.2:
@@ -2795,7 +2834,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-darwin-arm64/0.14.2:
@@ -2811,7 +2849,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-freebsd-64/0.14.2:
@@ -2827,7 +2864,6 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-freebsd-arm64/0.14.2:
@@ -2843,7 +2879,6 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-linux-32/0.14.2:
@@ -2859,7 +2894,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-linux-64/0.14.2:
@@ -2875,7 +2909,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-linux-arm/0.14.2:
@@ -2891,7 +2924,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-linux-arm64/0.14.2:
@@ -2907,7 +2939,6 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-linux-mips64le/0.14.2:
@@ -2923,7 +2954,6 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-linux-ppc64le/0.14.2:
@@ -2939,7 +2969,6 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-netbsd-64/0.14.2:
@@ -2967,14 +2996,12 @@ packages:
     dependencies:
       esbuild: 0.13.15
       typescript: 4.4.4
-    dev: true
 
   /esbuild-openbsd-64/0.13.15:
     resolution: {integrity: sha512-wTfvtwYJYAFL1fSs8yHIdf5GEE4NkbtbXtjLWjM3Cw8mmQKqsg8kTiqJ9NJQe5NX/5Qlo7Xd9r1yKMMkHllp5g==}
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-openbsd-64/0.14.2:
@@ -2992,14 +3019,12 @@ packages:
     dependencies:
       esbuild: 0.13.15
       jsonc-parser: 3.0.0
-    dev: true
 
   /esbuild-sunos-64/0.13.15:
     resolution: {integrity: sha512-lbivT9Bx3t1iWWrSnGyBP9ODriEvWDRiweAs69vI+miJoeKwHWOComSRukttbuzjZ8r1q0mQJ8Z7yUsDJ3hKdw==}
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-sunos-64/0.14.2:
@@ -3015,7 +3040,6 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-windows-32/0.14.2:
@@ -3031,7 +3055,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-windows-64/0.14.2:
@@ -3047,7 +3070,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /esbuild-windows-arm64/0.14.2:
@@ -3080,7 +3102,6 @@ packages:
       esbuild-windows-32: 0.13.15
       esbuild-windows-64: 0.13.15
       esbuild-windows-arm64: 0.13.15
-    dev: true
 
   /esbuild/0.14.2:
     resolution: {integrity: sha512-l076A6o/PIgcyM24s0dWmDI/b8RQf41uWoJu9I0M71CtW/YSw5T5NUeXxs5lo2tFQD+O4CW4nBHJXx3OY5NpXg==}
@@ -3385,19 +3406,6 @@ packages:
       - supports-color
     dev: true
 
-  /esmo/0.12.1_typescript@4.4.4:
-    resolution: {integrity: sha512-YJemjdLRuFvb3I2XCzEeTbd67O5hV0LOde9je23khmBrzyvBUl615niehBJCe2KQObcK/IgcxVj0bdcbNBANIg==}
-    hasBin: true
-    dependencies:
-      cross-spawn: 7.0.3
-      esbuild: 0.13.15
-      esbuild-node-loader: 0.6.3_typescript@4.4.4
-      esbuild-register: 3.2.0_esbuild@0.13.15
-      import-meta-resolve: 1.1.1
-    transitivePeerDependencies:
-      - typescript
-    dev: true
-
   /esno/0.12.1_typescript@4.4.4:
     resolution: {integrity: sha512-OmPcnNEXVmfiGANoPxsUZHYs+USGgWveC+RVVbvyFXRtwwoBQa7K2TjRe9o2FCkfLB56ewq/0MiEmowyCE3ARA==}
     hasBin: true
@@ -3409,7 +3417,6 @@ packages:
       import-meta-resolve: 1.1.1
     transitivePeerDependencies:
       - typescript
-    dev: true
 
   /espree/9.2.0:
     resolution: {integrity: sha512-oP3utRkynpZWF/F2x/HZJ+AGtnIclaR7z1pYPxy7NYM2fSO6LgK/Rkny8anRSPK/VwEA1eqm2squui0T7ZMOBg==}
@@ -3980,7 +3987,6 @@ packages:
     resolution: {integrity: sha512-JiTuIvVyPaUg11eTrNDx5bgQ/yMKMZffc7YSjvQeSMXy58DO2SQ8BtAf3xteZvmzvjYh14wnqNjL8XVeDy2o9A==}
     dependencies:
       builtins: 4.0.0
-    dev: true
 
   /imurmurhash/0.1.4:
     resolution: {integrity: sha1-khi5srkoojixPcT7a21XbyMUU+o=}
@@ -4226,7 +4232,6 @@ packages:
 
   /isexe/2.0.0:
     resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
-    dev: true
 
   /istanbul-lib-coverage/3.2.0:
     resolution: {integrity: sha512-eOeJ5BHCmHYvQK7xt9GkdHuzuCGS1Y6g9Gvnx3Ym33fz/HpLRYxiS0wHNr+m/MBC8B647Xt608vCDEvhl9c6Mw==}
@@ -4322,6 +4327,36 @@ packages:
       - supports-color
     dev: true
 
+  /jest-cli/27.4.3:
+    resolution: {integrity: sha512-zZSJBXNC/i8UnJPwcKWsqnhGgIF3uoTYP7th32Zej7KNQJdxzOMj+wCfy2Ox3kU7nXErJ36DtYyXDhfiqaiDRw==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    hasBin: true
+    peerDependencies:
+      node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
+    peerDependenciesMeta:
+      node-notifier:
+        optional: true
+    dependencies:
+      '@jest/core': 27.4.3
+      '@jest/test-result': 27.4.2
+      '@jest/types': 27.4.2
+      chalk: 4.1.2
+      exit: 0.1.2
+      graceful-fs: 4.2.8
+      import-local: 3.0.3
+      jest-config: 27.4.3
+      jest-util: 27.4.2
+      jest-validate: 27.4.2
+      prompts: 2.4.2
+      yargs: 16.2.0
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - ts-node
+      - utf-8-validate
+    dev: true
+
   /jest-cli/27.4.3_ts-node@10.4.0:
     resolution: {integrity: sha512-zZSJBXNC/i8UnJPwcKWsqnhGgIF3uoTYP7th32Zej7KNQJdxzOMj+wCfy2Ox3kU7nXErJ36DtYyXDhfiqaiDRw==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -4349,6 +4384,44 @@ packages:
       - canvas
       - supports-color
       - ts-node
+      - utf-8-validate
+    dev: true
+
+  /jest-config/27.4.3:
+    resolution: {integrity: sha512-DQ10HTSqYtC2pO7s9j2jw+li4xUnm2wLYWH2o7K1ftB8NyvToHsXoLlXxtsGh3AW9gUQR6KY/4B7G+T/NswJBw==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    peerDependencies:
+      ts-node: '>=9.0.0'
+    peerDependenciesMeta:
+      ts-node:
+        optional: true
+    dependencies:
+      '@babel/core': 7.16.0
+      '@jest/test-sequencer': 27.4.2
+      '@jest/types': 27.4.2
+      babel-jest: 27.4.2_@babel+core@7.16.0
+      chalk: 4.1.2
+      ci-info: 3.3.0
+      deepmerge: 4.2.2
+      glob: 7.2.0
+      graceful-fs: 4.2.8
+      jest-circus: 27.4.2
+      jest-environment-jsdom: 27.4.3
+      jest-environment-node: 27.4.2
+      jest-get-type: 27.4.0
+      jest-jasmine2: 27.4.2
+      jest-regex-util: 27.4.0
+      jest-resolve: 27.4.2
+      jest-runner: 27.4.3
+      jest-util: 27.4.2
+      jest-validate: 27.4.2
+      micromatch: 4.0.4
+      pretty-format: 27.4.2
+      slash: 3.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
       - utf-8-validate
     dev: true
 
@@ -4747,6 +4820,27 @@ packages:
       supports-color: 8.1.1
     dev: true
 
+  /jest/27.4.3:
+    resolution: {integrity: sha512-jwsfVABBzuN3Atm+6h6vIEpTs9+VApODLt4dk2qv1WMOpb1weI1IIZfuwpMiWZ62qvWj78MvdvMHIYdUfqrFaA==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    hasBin: true
+    peerDependencies:
+      node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
+    peerDependenciesMeta:
+      node-notifier:
+        optional: true
+    dependencies:
+      '@jest/core': 27.4.3
+      import-local: 3.0.3
+      jest-cli: 27.4.3
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - ts-node
+      - utf-8-validate
+    dev: true
+
   /jest/27.4.3_ts-node@10.4.0:
     resolution: {integrity: sha512-jwsfVABBzuN3Atm+6h6vIEpTs9+VApODLt4dk2qv1WMOpb1weI1IIZfuwpMiWZ62qvWj78MvdvMHIYdUfqrFaA==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -4871,7 +4965,6 @@ packages:
 
   /jsonc-parser/3.0.0:
     resolution: {integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==}
-    dev: true
 
   /jsonfile/6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
@@ -5012,7 +5105,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
-    dev: true
 
   /lz-string/1.4.4:
     resolution: {integrity: sha1-wNjq82BZ9wV5bh40SBHPTEmNOiY=}
@@ -5601,7 +5693,6 @@ packages:
   /path-key/3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
     engines: {node: '>=8'}
-    dev: true
 
   /path-parse/1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
@@ -6130,7 +6221,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: true
 
   /set-cookie-parser/2.4.8:
     resolution: {integrity: sha512-edRH8mBKEWNVIVMKejNnuJxleqYE/ZSdcT8/Nem9/mmosx12pctd80s2Oy00KNZzrogMZS5mauK2/ymL1bvlvg==}
@@ -6164,7 +6254,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       shebang-regex: 3.0.0
-    dev: true
 
   /shebang-regex/1.0.0:
     resolution: {integrity: sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=}
@@ -6174,7 +6263,6 @@ packages:
   /shebang-regex/3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
-    dev: true
 
   /shell-quote/1.7.3:
     resolution: {integrity: sha512-Vpfqwm4EnqGdlsBFNmHhxhElJYrdfcxPThu+ryKS5J8L/fhAwLazFZtq+S+TWZ9ANj2piSQLGj6NQg+lKPmxrw==}
@@ -6646,7 +6734,7 @@ packages:
       bs-logger: 0.2.6
       esbuild: 0.14.2
       fast-json-stable-stringify: 2.1.0
-      jest: 27.4.3_ts-node@10.4.0
+      jest: 27.4.3
       jest-util: 27.4.2
       json5: 2.2.0
       lodash.memoize: 4.1.2
@@ -7003,7 +7091,6 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
-    dev: true
 
   /word-wrap/1.2.3:
     resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==}
@@ -7064,7 +7151,6 @@ packages:
 
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-    dev: true
 
   /yaml/1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
