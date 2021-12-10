@@ -7,8 +7,7 @@ import {
   RestRequest,
 } from "msw";
 import faker from "faker";
-import { ENDPOINTS as LIST_ENDPOINTS, TList } from "@framework/List";
-import { TItem } from "@framework/Item";
+import { Item, List } from "@kuroski-hackernews/framework";
 
 // #region List mocks
 
@@ -19,10 +18,12 @@ const listHandler = (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     any
   >
-) => rest.get(LIST_ENDPOINTS.topStories.toString(), cb);
+) => rest.get(List.ENDPOINTS.topStories.toString(), cb);
 
 export const mockSuccessListRequest = (
-  overrides?: (_req: RestRequest<DefaultRequestBody, RequestParams>) => TList
+  overrides?: (
+    _req: RestRequest<DefaultRequestBody, RequestParams>
+  ) => List.TList
 ) =>
   listHandler((req, res, ctx) =>
     res(
@@ -57,7 +58,7 @@ const itemHandler = (
 export const mockSuccessItemRequest = (
   overrides?: (
     _req: RestRequest<DefaultRequestBody, RequestParams>
-  ) => Partial<Record<keyof TItem, unknown>>
+  ) => Partial<Record<keyof Item.TItem, unknown>>
 ) =>
   itemHandler((req, res, ctx) =>
     res(

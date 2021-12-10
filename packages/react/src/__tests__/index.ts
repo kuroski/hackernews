@@ -6,7 +6,7 @@ import {
   server,
   mockSuccessItemRequest,
   mockSuccessListRequest,
-} from "@kuroski-hackernews/framework";
+} from "@kuroski-hackernews/mocks";
 import { pipe } from "fp-ts/function";
 
 describe("Hooks", () => {

@@ -1,4 +1,4 @@
-import { server } from "./src/mocks/server";
+import { server } from "@kuroski-hackernews/mocks";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());

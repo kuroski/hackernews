@@ -1,11 +1,12 @@
 import { ENDPOINTS, getLists } from "..";
 import * as E from "fp-ts/Either";
-import { server, rest } from "@framework/mocks/server";
-import { FetchError } from "@framework/fetch";
 import {
+  server,
+  rest,
   mockBadListRequest,
   mockInvalidListRequest,
-} from "@framework/mocks/handlers";
+} from "@kuroski-hackernews/mocks";
+import { FetchError } from "@framework/fetch";
 
 describe("List: api", () => {
   it("Resolves reddit lists request", async () => {

@@ -16,6 +16,7 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@kuroski-hackernews/mocks": "workspace:*",
     "@devexperts/remote-data-ts": "^2.1.1",
     "cross-fetch": "^3.1.4",
     "fp-ts": "^2.11.5",
