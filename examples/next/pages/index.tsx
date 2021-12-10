@@ -3,7 +3,7 @@ import * as O from "fp-ts/Option";
 import { pipe } from "fp-ts/function";
 import * as RD from "@devexperts/remote-data-ts";
 import { useStories } from "@kuroski-hackernews/react";
-import { Item as I, fetchErrorToString } from "@kuroski-hackernews/framework";
+import { fetchErrorToString, Item as I } from "@kuroski-hackernews/framework";
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
