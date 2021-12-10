@@ -23,6 +23,9 @@
   "exclude": [
     "node_modules/",
     "dist/",
-    "**/*.test.ts"
+    "__tests__/",
+    "**/*.test.ts",
+    "jest.config.*",
+    "jest.setup.*"
   ],
 }
