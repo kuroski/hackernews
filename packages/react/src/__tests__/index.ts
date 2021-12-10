@@ -1,12 +1,12 @@
 import { act, renderHook } from "@testing-library/react-hooks";
-import { useStories } from "../hooks";
+import { useStories } from "..";
 import * as RD from "@devexperts/remote-data-ts";
 import * as O from "fp-ts/Option";
-import { server } from "@framework/mocks/server";
 import {
+  server,
   mockSuccessItemRequest,
   mockSuccessListRequest,
-} from "@framework/mocks/handlers";
+} from "@kuroski-hackernews/framework";
 import { pipe } from "fp-ts/function";
 
 describe("Hooks", () => {
@@ -31,26 +31,26 @@ describe("Hooks", () => {
 
     expect(result.current.stories).toHaveLength(1);
     expect(result.current.stories).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "_tag": "ItemStory",
-    "by": "dhouston",
-    "id": 76686866,
-    "kids": Array [],
-    "text": Object {
-      "_tag": "None",
-    },
-    "title": Object {
-      "_tag": "Some",
-      "value": "My story 76686866",
-    },
-    "url": Object {
-      "_tag": "Some",
-      "value": "http://my-url.com/?storyId=76686866",
-    },
-  },
-]
-`);
+      Array [
+        Object {
+          "_tag": "ItemStory",
+          "by": "dhouston",
+          "id": 76686866,
+          "kids": Array [],
+          "text": Object {
+            "_tag": "None",
+          },
+          "title": Object {
+            "_tag": "Some",
+            "value": "My story 76686866",
+          },
+          "url": Object {
+            "_tag": "Some",
+            "value": "http://my-url.com/?storyId=76686866",
+          },
+        },
+      ]
+    `);
     expect(result.current.remoteData).toEqual(
       RD.success(result.current.stories)
     );
@@ -73,43 +73,43 @@ Array [
 
     expect(result.current.stories).toHaveLength(2);
     expect(result.current.stories).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "_tag": "ItemStory",
-    "by": "dhouston",
-    "id": 76686866,
-    "kids": Array [],
-    "text": Object {
-      "_tag": "None",
-    },
-    "title": Object {
-      "_tag": "Some",
-      "value": "My story 76686866",
-    },
-    "url": Object {
-      "_tag": "Some",
-      "value": "http://my-url.com/?storyId=76686866",
-    },
-  },
-  Object {
-    "_tag": "ItemStory",
-    "by": "dhouston",
-    "id": 67829238,
-    "kids": Array [],
-    "text": Object {
-      "_tag": "None",
-    },
-    "title": Object {
-      "_tag": "Some",
-      "value": "My story 67829238",
-    },
-    "url": Object {
-      "_tag": "Some",
-      "value": "http://my-url.com/?storyId=67829238",
-    },
-  },
-]
-`);
+      Array [
+        Object {
+          "_tag": "ItemStory",
+          "by": "dhouston",
+          "id": 76686866,
+          "kids": Array [],
+          "text": Object {
+            "_tag": "None",
+          },
+          "title": Object {
+            "_tag": "Some",
+            "value": "My story 76686866",
+          },
+          "url": Object {
+            "_tag": "Some",
+            "value": "http://my-url.com/?storyId=76686866",
+          },
+        },
+        Object {
+          "_tag": "ItemStory",
+          "by": "dhouston",
+          "id": 67829238,
+          "kids": Array [],
+          "text": Object {
+            "_tag": "None",
+          },
+          "title": Object {
+            "_tag": "Some",
+            "value": "My story 67829238",
+          },
+          "url": Object {
+            "_tag": "Some",
+            "value": "http://my-url.com/?storyId=67829238",
+          },
+        },
+      ]
+    `);
     expect(result.current.remoteData).toEqual(
       RD.success(result.current.stories)
     );
