@@ -1,5 +1,5 @@
 import { ENDPOINTS, getLists } from "..";
-import * as E from "fp-ts/lib/Either";
+import * as E from "fp-ts/Either";
 import { server, rest } from "@framework/mocks/server";
 import { FetchError } from "@framework/fetch";
 import {

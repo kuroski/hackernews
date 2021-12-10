@@ -1,5 +1,5 @@
-import { pipe } from "fp-ts/lib/function";
-import * as TE from "fp-ts/lib/TaskEither";
+import { pipe } from "fp-ts/function";
+import * as TE from "fp-ts/TaskEither";
 import { ListId } from "../List";
 import customFetch, { FetchError, mapTDecoded } from "../fetch";
 import { fromTItem, TItem, Item } from "./Item";

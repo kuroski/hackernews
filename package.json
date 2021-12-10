@@ -7,8 +7,7 @@
     "test:framework": "cd ./packages/framework && pnpm test",
     "test:react": "cd ./packages/react && pnpm test",
     "next:dev": "cd ./examples/next && pnpm dev",
-    "build": "run-s build:*",
-    "build:next": "cd ./examples/next && pnpm build"
+    "build": "pnpm run --recursive build"
   },
   "devDependencies": {
     "@types/node": "^16.11.12",

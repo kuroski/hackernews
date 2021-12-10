@@ -1,13 +1,13 @@
 import { act, renderHook } from "@testing-library/react-hooks";
 import { useStories } from "../hooks";
 import * as RD from "@devexperts/remote-data-ts";
-import * as O from "fp-ts/lib/Option";
+import * as O from "fp-ts/Option";
 import { server } from "@framework/mocks/server";
 import {
   mockSuccessItemRequest,
   mockSuccessListRequest,
 } from "@framework/mocks/handlers";
-import { pipe } from "fp-ts/lib/function";
+import { pipe } from "fp-ts/function";
 
 describe("Hooks", () => {
   test("useStories", async () => {

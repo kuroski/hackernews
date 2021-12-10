@@ -1,12 +1,12 @@
 import { getStory, TItemStory } from "..";
-import * as E from "fp-ts/lib/Either";
-import * as TE from "fp-ts/lib/TaskEither";
-import * as T from "fp-ts/lib/Task";
+import * as E from "fp-ts/Either";
+import * as TE from "fp-ts/TaskEither";
+import * as T from "fp-ts/Task";
 import { FetchError, toDecodingError } from "@framework/fetch";
 import { fromTListItem, TListItem } from "@framework/List";
-import { pipe } from "fp-ts/lib/function";
+import { pipe } from "fp-ts/function";
 import { server } from "@framework/mocks/server";
-import { error } from "fp-ts/lib/Console";
+import { error } from "fp-ts/Console";
 import { mockSuccessItemRequest } from "@framework/mocks/handlers";
 
 describe("Item: api", () => {

@@ -1,20 +1,36 @@
 {
+  "name": "@kuroski-hackernews/framework",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
   "author": "",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && esno scripts/build.ts && tsc --declaration --emitDeclarationOnly --outdir dist src/**/*.ts",
+    "test": "jest",
+    "test:ci": "jest --ci"
+  },
   "dependencies": {
     "@devexperts/remote-data-ts": "^2.1.1",
     "cross-fetch": "^3.1.4",
     "fp-ts": "^2.11.5",
     "io-ts": "^2.2.16",
     "io-ts-types": "^0.5.16",
-    "monocle-ts": "^2.3.11"
+    "monocle-ts": "^2.3.11",
+    "newtype-ts": "^0.3.4"
   },
-  "description": "",
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
     "@types/faker": "^5.5.9",
     "@types/jest": "^27.0.3",
     "babel-jest": "^27.3.1",
     "esbuild": "^0.14.2",
+    "esbuild-node-externals": "^1.4.1",
     "esmo": "^0.12.1",
     "esno": "^0.12.1",
     "faker": "^5.5.3",
@@ -24,20 +40,5 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^27.1.1",
     "typescript": "4.4.4"
-  },
-  "exports": "./dist/index.js",
-  "files": [
-    "/dist"
-  ],
-  "license": "ISC",
-  "module": "./dist/index.esm.js",
-  "name": "@kuroski-hackernews/framework",
-  "scripts": {
-    "build": "rimraf dist && esmo scripts/build.ts && tsc ./src/index.ts --declaration --emitDeclarationOnly --outfile dist/index.d.ts",
-    "test": "jest",
-    "test:ci": "jest --ci"
-  },
-  "type": "module",
-  "typings": "src/index.d.ts",
-  "version": "1.0.0"
+  }
 }

@@ -1,8 +1,8 @@
-import { pipe } from "fp-ts/lib/function";
-import * as O from "fp-ts/lib/Option";
-import * as TE from "fp-ts/lib/TaskEither";
-import * as ROA from "fp-ts/lib/ReadonlyArray";
-import * as ROT from "fp-ts/lib/ReadonlyTuple";
+import { pipe } from "fp-ts/function";
+import * as O from "fp-ts/Option";
+import * as TE from "fp-ts/TaskEither";
+import * as ROA from "fp-ts/ReadonlyArray";
+import * as ROT from "fp-ts/ReadonlyTuple";
 import * as L from "./List";
 import { getStory, Item } from "./Item";
 import { FetchError } from "./fetch";
