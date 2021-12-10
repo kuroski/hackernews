@@ -4,14 +4,14 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/cjs/index.cjs.js",
+  "module": "dist/esm/index.esm.js",
+  "types": "dist/index.d.ts",
   "files": [
     "/dist"
   ],
   "scripts": {
-    "build": "rimraf dist && esno scripts/build.ts && tsc --declaration --emitDeclarationOnly --outdir dist src/**/*.ts",
+    "build": "rimraf dist && esno scripts/build.ts && tsc -p tsconfig.release.json",
     "test": "jest",
     "test:ci": "jest --ci"
   },
