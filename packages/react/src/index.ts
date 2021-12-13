@@ -11,7 +11,15 @@ import * as TE from "fp-ts/TaskEither";
 import { pipe } from "fp-ts/function";
 import * as RD from "@devexperts/remote-data-ts";
 
-export const useStories = (storiesPerPage = 10) => {
+type UseStories = (_storiesPerPage?: number) => {
+  remoteData: RD.RemoteData<FetchError, readonly Item.Item[]>;
+  stories: readonly Item.Item[];
+  loadMore: O.Option<
+    () => Promise<RD.RemoteData<FetchError, readonly Item.Item[]>>
+  >;
+};
+
+export const useStories: UseStories = (storiesPerPage = 10) => {
   const [remoteData, setRemoteData] = useState<
     RD.RemoteData<FetchError, readonly Item.Item[]>
   >(RD.initial);

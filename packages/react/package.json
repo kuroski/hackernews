@@ -2,44 +2,51 @@
   "name": "@kuroski-hackernews/react",
   "version": "1.0.0",
   "description": "",
-  "author": "",
   "license": "ISC",
-  "main": "dist/cjs/index.cjs.js",
-  "module": "dist/esm/index.esm.js",
+  "author": "Daniel Kuroski <daniel.kuroski@gmail.com> (https://github.com/kuroski/)",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "/dist"
-  ],
   "scripts": {
-    "build": "rimraf dist && esno scripts/build.ts && tsc -p tsconfig.release.json",
+    "build": "tsup src/index.ts --format cjs,esm --dts --sourcemap --minify --clean",
+    "prepublishOnly": "npm run build",
     "test": "jest",
-    "test:watch": "jest --watchAll",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "watch": "npm run build -- --watch src"
   },
   "dependencies": {
     "@devexperts/remote-data-ts": "^2.1.1",
     "@kuroski-hackernews/framework": "workspace:*",
     "@kuroski-hackernews/mocks": "workspace:*",
-    "esno": "^0.12.1",
     "fp-ts": "^2.11.5",
+    "io-ts": "^2.2.16",
+    "io-ts-types": "^0.5.16",
+    "monocle-ts": "^2.3.11",
+    "newtype-ts": "^0.3.4",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@types/jest": "^27.0.2",
     "@types/react": "17.0.31",
     "babel-jest": "^27.3.1",
-    "esbuild": "^0.14.2",
-    "esbuild-node-externals": "^1.4.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
     "react-test-renderer": "^17.0.2",
-    "rimraf": "^3.0.2",
     "ts-jest": "^27.1.1",
     "ts-node": "^10.4.0",
+    "tsup": "^5.11.1",
     "typescript": "4.4.4"
   }
 }
