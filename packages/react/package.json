@@ -11,11 +11,11 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --sourcemap --minify --clean",
+    "build": "tsup src/index.ts --format cjs,esm --dts --minify --sourcemap --clean",
     "prepublishOnly": "npm run build",
     "test": "jest",
     "test:ci": "jest --ci",
@@ -24,16 +24,12 @@
   "dependencies": {
     "@devexperts/remote-data-ts": "^2.1.1",
     "@kuroski-hackernews/framework": "workspace:*",
-    "@kuroski-hackernews/mocks": "workspace:*",
     "fp-ts": "^2.11.5",
-    "io-ts": "^2.2.16",
-    "io-ts-types": "^0.5.16",
-    "monocle-ts": "^2.3.11",
-    "newtype-ts": "^0.3.4",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@kuroski-hackernews/mocks": "workspace:*",
     "@babel/core": "^7.0.0-0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
