@@ -22,8 +22,8 @@
     "watch": "npm run build -- --watch src"
   },
   "dependencies": {
-    "fp-ts": "^2.11.5",
     "cross-fetch": "^3.1.4",
+    "fp-ts": "^2.11.5",
     "io-ts": "^2.2.16",
     "io-ts-types": "^0.5.16",
     "monocle-ts": "^2.3.11",
@@ -41,7 +41,7 @@
     "msw": "^0.35.0",
     "ts-jest": "^27.1.1",
     "ts-node": "^10.4.0",
-    "tsup": "^5.11.1",
+    "tsup": "^5.11.4",
     "typescript": "4.4.4"
   }
 }
