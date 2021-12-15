@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "test": "pnpm run --recursive test:ci",
     "next:dev": "cd ./examples/next && pnpm dev",
     "build": "pnpm run --recursive build"
