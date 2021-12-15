@@ -6,11 +6,9 @@
   "author": "",
   "main": "index.ts",
   "types": "index.ts",
-  "dependencies": {
-    "@kuroski-hackernews/framework": "workspace:*"
-  },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
+    "@kuroski-hackernews/framework": "workspace:*",
     "@types/faker": "^5.5.9",
     "faker": "^5.5.3",
     "msw": "^0.35.0",
