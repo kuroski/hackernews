@@ -23,28 +23,8 @@ onMounted(async () => {
     )
   )();
 });
-
-RD.
 </script>
 
 <template>
-  <div>
-    {{
-      pipe(
-        remoteData,
-        RD.fold(
-          () => "initial",
-          () => "Is loading...",
-          (_error) => "OOps",
-          (result) => "YAY"
-        )
-      )
-    }}
-    <remoteData>
-      <!-- <template #initial>Initial...</template> -->
-      <template #pending>Loading...</template>
-      <template #failure="$error">Error...</template>
-      <template #success="$success">Success...</template>
-    </remoteData>
-  </div>
+  <div>Hello world</div>
 </template>
