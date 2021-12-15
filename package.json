@@ -6,7 +6,7 @@
     "preinstall": "npx only-allow pnpm",
     "test": "pnpm run --recursive test:ci",
     "next:dev": "cd ./examples/next && pnpm dev",
-    "build": "pnpm run --recursive build"
+    "build": "pnpm run -r --filter ./packages build && pnpm run -r --filter ./examples build"
   },
   "devDependencies": {
     "@types/node": "^16.11.12",
