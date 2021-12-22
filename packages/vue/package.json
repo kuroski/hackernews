@@ -17,7 +17,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --minify --sourcemap --clean",
     "prepublishOnly": "npm run build",
-    "test": "jest",
+    "test": "jest --watchAll",
     "test:ci": "jest --ci",
     "watch": "npm run build -- --watch src"
   },
@@ -43,7 +43,6 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
     "@kuroski-hackernews/mocks": "workspace:*",
-    "@testing-library/jest-dom": "^5.14.1",
     "@types/jest": "^27.0.2",
     "babel-jest": "^27.3.1",
     "identity-obj-proxy": "^3.0.0",

@@ -242,7 +242,6 @@ importers:
       '@devexperts/remote-data-ts': ^2.1.1
       '@kuroski-hackernews/framework': workspace:*
       '@kuroski-hackernews/mocks': workspace:*
-      '@testing-library/jest-dom': ^5.14.1
       '@types/jest': ^27.0.2
       babel-jest: ^27.3.1
       fp-ts: ^2.11.5
@@ -270,7 +269,6 @@ importers:
     devDependencies:
       '@babel/core': 7.16.0
       '@kuroski-hackernews/mocks': link:../mocks
-      '@testing-library/jest-dom': 5.16.1
       '@types/jest': 27.0.3
       babel-jest: 27.4.4_@babel+core@7.16.0
       identity-obj-proxy: 3.0.0
