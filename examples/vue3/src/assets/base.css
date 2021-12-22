@@ -1,74 +1,188 @@
-/* color palette from <https://github.com/vuejs/theme> */
-:root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dadarkrk-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-}
-
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
+@font-face {
+  font-family: "Upheaval TT (BRK)";
+  src: url("/fonts/upheavaltt/UpheavalTT-BRK-.eot");
+  src: url("/fonts/upheavaltt/UpheavalTT-BRK-.eot?#iefix")
+      format("embedded-opentype"),
+    url("/fonts/upheavaltt/UpheavalTT-BRK-.woff2") format("woff2"),
+    url("/fonts/upheavaltt/UpheavalTT-BRK-.woff") format("woff"),
+    url("/fonts/upheavaltt/UpheavalTT-BRK-.ttf") format("truetype"),
+    url("/fonts/upheavaltt/UpheavalTT-BRK-.svg#UpheavalTT-BRK-") format("svg");
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply font-bit text-base p-2 bg-isaac-600 text-isaac-900;
+}
+
+.button {
+  @apply relative flex-shrink-0 text-base font-semibold py-1 px-4 transition;
+}
+
+.stories {
+  @apply w-full flex flex-col gap-4 md:gap-6 px-6 py-4 bg-isaac-500 border-isaac-800 border-4 rounded-paper shadow;
+}
+
+.stories > h1 {
+  @apply relative text-2xl md:text-4xl text-center mb-2;
+}
+
+.stories > h1::before {
+  @apply absolute bottom-3 -translate-x-4 scale-x-180 md:scale-x-260 opacity-30;
+  content: "";
+  box-shadow: 90px 5px 0 0 rgba(158, 152, 154, 1),
+    95px 5px 0 0 rgba(158, 152, 154, 1), 100px 5px 0 0 rgba(158, 152, 154, 1),
+    5px 10px 0 0 rgba(158, 152, 154, 1), 10px 10px 0 0 rgba(158, 152, 154, 1),
+    15px 10px 0 0 rgba(158, 152, 154, 1), 20px 10px 0 0 rgba(158, 152, 154, 1),
+    25px 10px 0 0 rgba(158, 152, 154, 1), 30px 10px 0 0 rgba(158, 152, 154, 1),
+    35px 10px 0 0 rgba(158, 152, 154, 1), 40px 10px 0 0 rgba(158, 152, 154, 1),
+    45px 10px 0 0 rgba(158, 152, 154, 1), 50px 10px 0 0 rgba(158, 152, 154, 1),
+    55px 10px 0 0 rgba(158, 152, 154, 1), 60px 10px 0 0 rgba(158, 152, 154, 1),
+    65px 10px 0 0 rgba(158, 152, 154, 1), 70px 10px 0 0 rgba(158, 152, 154, 1),
+    75px 10px 0 0 rgba(158, 152, 154, 1), 80px 10px 0 0 rgba(158, 152, 154, 1),
+    85px 10px 0 0 rgba(158, 152, 154, 1), 90px 10px 0 0 rgba(158, 152, 154, 1),
+    95px 10px 0 0 rgba(158, 152, 154, 1), 10px 15px 0 0 rgba(158, 152, 154, 1),
+    15px 15px 0 0 rgba(158, 152, 154, 1), 20px 15px 0 0 rgba(158, 152, 154, 1),
+    25px 15px 0 0 rgba(158, 152, 154, 1), 30px 15px 0 0 rgba(158, 152, 154, 1),
+    35px 15px 0 0 rgba(158, 152, 154, 1), 40px 15px 0 0 rgba(158, 152, 154, 1),
+    45px 15px 0 0 rgba(158, 152, 154, 1), 50px 15px 0 0 rgba(158, 152, 154, 1),
+    55px 15px 0 0 rgba(158, 152, 154, 1), 60px 15px 0 0 rgba(158, 152, 154, 1),
+    65px 15px 0 0 rgba(158, 152, 154, 1), 70px 15px 0 0 rgba(158, 152, 154, 1),
+    75px 15px 0 0 rgba(158, 152, 154, 1), 80px 15px 0 0 rgba(158, 152, 154, 1),
+    85px 15px 0 0 rgba(158, 152, 154, 1), 40px 20px 0 0 rgba(158, 152, 154, 1),
+    45px 20px 0 0 rgba(158, 152, 154, 1), 50px 20px 0 0 rgba(158, 152, 154, 1),
+    55px 20px 0 0 rgba(158, 152, 154, 1), 20px 25px 0 0 rgba(158, 152, 154, 1),
+    25px 25px 0 0 rgba(158, 152, 154, 1), 30px 25px 0 0 rgba(158, 152, 154, 1),
+    35px 25px 0 0 rgba(158, 152, 154, 1), 40px 25px 0 0 rgba(158, 152, 154, 1);
+  height: 5px;
+  width: 5px;
+}
+
+.stories > div {
+  @apply opacity-0 animate-fade-up;
+}
+
+.stories > div > section {
+  @apply relative flex flex-col px-2 mx-2 text-xl md:text-3xl leading-none outline-none;
+}
+
+.button::before,
+.button::before {
+  content: "";
+  @apply opacity-0 transition-opacity outline-none absolute -right-2 top-4 scale-20 rotate-160;
+}
+
+.stories > div > section::before,
+.stories > div > section::before,
+.stories > div > section > a::before,
+.stories > div > section > a::before {
+  content: "";
+  @apply opacity-0 transition-opacity outline-none absolute -left-6 top-0 md:top-2 scale-30;
+}
+
+.stories > div > section:hover::before,
+.stories > div > section:focus::before,
+.stories > div > section > a:hover::before,
+.stories > div > section > a:focus::before,
+.button:focus::before,
+.button:hover::before {
+  @apply opacity-100;
+  box-shadow: 25px 5px 0 0 theme("colors.isaac-900"),
+    30px 5px 0 0 theme("colors.isaac-900"),
+    35px 5px 0 0 theme("colors.isaac-900"),
+    25px 10px 0 0 theme("colors.isaac-900"),
+    30px 10px 0 0 theme("colors.isaac-900"),
+    35px 10px 0 0 theme("colors.isaac-900"),
+    40px 10px 0 0 theme("colors.isaac-900"),
+    20px 15px 0 0 theme("colors.isaac-900"),
+    25px 15px 0 0 theme("colors.isaac-900"),
+    30px 15px 0 0 theme("colors.isaac-900"),
+    35px 15px 0 0 theme("colors.isaac-900"),
+    40px 15px 0 0 theme("colors.isaac-900"),
+    45px 15px 0 0 theme("colors.isaac-900"),
+    50px 15px 0 0 theme("colors.isaac-900"),
+    55px 15px 0 0 theme("colors.isaac-900"),
+    20px 20px 0 0 theme("colors.isaac-900"),
+    25px 20px 0 0 theme("colors.isaac-900"),
+    30px 20px 0 0 theme("colors.isaac-900"),
+    35px 20px 0 0 theme("colors.isaac-900"),
+    40px 20px 0 0 theme("colors.isaac-900"),
+    45px 20px 0 0 theme("colors.isaac-900"),
+    50px 20px 0 0 theme("colors.isaac-900"),
+    55px 20px 0 0 theme("colors.isaac-900"),
+    60px 20px 0 0 theme("colors.isaac-900"),
+    65px 20px 0 0 theme("colors.isaac-900"),
+    70px 20px 0 0 theme("colors.isaac-900"),
+    15px 25px 0 0 theme("colors.isaac-900"),
+    20px 25px 0 0 theme("colors.isaac-900"),
+    25px 25px 0 0 theme("colors.isaac-900"),
+    30px 25px 0 0 theme("colors.isaac-900"),
+    35px 25px 0 0 theme("colors.isaac-900"),
+    40px 25px 0 0 theme("colors.isaac-900"),
+    45px 25px 0 0 theme("colors.isaac-900"),
+    50px 25px 0 0 theme("colors.isaac-900"),
+    55px 25px 0 0 theme("colors.isaac-900"),
+    60px 25px 0 0 theme("colors.isaac-900"),
+    65px 25px 0 0 theme("colors.isaac-900"),
+    70px 25px 0 0 theme("colors.isaac-900"),
+    75px 25px 0 0 theme("colors.isaac-900"),
+    10px 30px 0 0 theme("colors.isaac-900"),
+    15px 30px 0 0 theme("colors.isaac-900"),
+    20px 30px 0 0 theme("colors.isaac-900"),
+    25px 30px 0 0 theme("colors.isaac-900"),
+    30px 30px 0 0 theme("colors.isaac-900"),
+    35px 30px 0 0 theme("colors.isaac-900"),
+    40px 30px 0 0 theme("colors.isaac-900"),
+    45px 30px 0 0 theme("colors.isaac-900"),
+    50px 30px 0 0 theme("colors.isaac-900"),
+    55px 30px 0 0 theme("colors.isaac-900"),
+    60px 30px 0 0 theme("colors.isaac-900"),
+    65px 30px 0 0 theme("colors.isaac-900"),
+    70px 30px 0 0 theme("colors.isaac-900"),
+    75px 30px 0 0 theme("colors.isaac-900"),
+    10px 35px 0 0 theme("colors.isaac-900"),
+    15px 35px 0 0 theme("colors.isaac-900"),
+    20px 35px 0 0 theme("colors.isaac-900"),
+    25px 35px 0 0 theme("colors.isaac-900"),
+    30px 35px 0 0 theme("colors.isaac-900"),
+    35px 35px 0 0 theme("colors.isaac-900"),
+    40px 35px 0 0 theme("colors.isaac-900"),
+    45px 35px 0 0 theme("colors.isaac-900"),
+    50px 35px 0 0 theme("colors.isaac-900"),
+    55px 35px 0 0 theme("colors.isaac-900"),
+    60px 35px 0 0 theme("colors.isaac-900"),
+    65px 35px 0 0 theme("colors.isaac-900"),
+    70px 35px 0 0 theme("colors.isaac-900"),
+    10px 40px 0 0 theme("colors.isaac-900"),
+    15px 40px 0 0 theme("colors.isaac-900"),
+    20px 40px 0 0 theme("colors.isaac-900"),
+    25px 40px 0 0 theme("colors.isaac-900"),
+    30px 40px 0 0 theme("colors.isaac-900"),
+    35px 40px 0 0 theme("colors.isaac-900"),
+    40px 40px 0 0 theme("colors.isaac-900"),
+    45px 40px 0 0 theme("colors.isaac-900"),
+    50px 40px 0 0 theme("colors.isaac-900"),
+    55px 40px 0 0 theme("colors.isaac-900"),
+    60px 40px 0 0 theme("colors.isaac-900"),
+    5px 45px 0 0 theme("colors.isaac-900"),
+    10px 45px 0 0 theme("colors.isaac-900"),
+    15px 45px 0 0 theme("colors.isaac-900"),
+    20px 45px 0 0 theme("colors.isaac-900"),
+    25px 45px 0 0 theme("colors.isaac-900"),
+    30px 45px 0 0 theme("colors.isaac-900"),
+    35px 45px 0 0 theme("colors.isaac-900"),
+    40px 45px 0 0 theme("colors.isaac-900"),
+    5px 50px 0 0 theme("colors.isaac-900"),
+    10px 50px 0 0 theme("colors.isaac-900"),
+    15px 50px 0 0 theme("colors.isaac-900"),
+    20px 50px 0 0 theme("colors.isaac-900"),
+    25px 50px 0 0 theme("colors.isaac-900"),
+    30px 50px 0 0 theme("colors.isaac-900");
+  height: 5px;
+  width: 5px;
 }

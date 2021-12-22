@@ -33,7 +33,7 @@ body {
 }
 
 .stories > h1::before {
-  @apply absolute bottom-3 transform -translate-x-4 scale-x-180 md:scale-x-260 opacity-30;
+  @apply absolute bottom-3 -translate-x-4 scale-x-180 md:scale-x-260 opacity-30;
   content: "";
   box-shadow: 90px 5px 0 0 rgba(158, 152, 154, 1),
     95px 5px 0 0 rgba(158, 152, 154, 1), 100px 5px 0 0 rgba(158, 152, 154, 1),

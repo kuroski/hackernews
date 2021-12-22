@@ -1,7 +1,7 @@
 {
   "extends": [
     "../../.eslintrc.json",
-    "next/babel",
+    "next",
     "next/core-web-vitals",
     "plugin:jsx-a11y/recommended"
   ],
