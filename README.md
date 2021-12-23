@@ -7,7 +7,7 @@ As an overview, this project is:
 - [x] Create first example using next
 - [x] Create the monorepo structure
 - [x] Create different framework usage example (with Vue)
-- [] Create terminal usage example
-- [] Document repo
-- [] Write article
-- [] Create cache system
+- [ ] Create terminal usage example
+- [ ] Document repo
+- [ ] Write article
+- [ ] Create cache system
