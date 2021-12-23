@@ -29,7 +29,6 @@ export const useStories: UseStories = (storiesPerPage = 10) => {
 
   const fetchStories = async (loadListFn: () => LoadList) => {
     remoteData.value = RD.pending;
-    console.log("FETCHING");
 
     const result = await pipe(
       loadListFn(),

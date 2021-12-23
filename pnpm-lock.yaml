@@ -243,6 +243,8 @@ importers:
       '@kuroski-hackernews/framework': workspace:*
       '@kuroski-hackernews/mocks': workspace:*
       '@types/jest': ^27.0.2
+      '@types/node': ^16.11.12
+      '@vueuse/core': ^7.4.1
       babel-jest: ^27.3.1
       fp-ts: ^2.11.5
       identity-obj-proxy: ^3.0.0
@@ -270,6 +272,8 @@ importers:
       '@babel/core': 7.16.0
       '@kuroski-hackernews/mocks': link:../mocks
       '@types/jest': 27.0.3
+      '@types/node': 16.11.12
+      '@vueuse/core': 7.4.1_vue@3.2.26
       babel-jest: 27.4.4_@babel+core@7.16.0
       identity-obj-proxy: 3.0.0
       jest: 27.4.4_ts-node@10.4.0
@@ -1776,6 +1780,37 @@ packages:
 
   /@vue/shared/3.2.26:
     resolution: {integrity: sha512-vPV6Cq+NIWbH5pZu+V+2QHE9y1qfuTq49uNWw4f7FDEeZaDU2H2cx5jcUZOAKW7qTrUS4k6qZPbMy1x4N96nbA==}
+
+  /@vueuse/core/7.4.1_vue@3.2.26:
+    resolution: {integrity: sha512-8UeLPCAieeQLXFHF1/28SIEK6ILLPb/4hp03hR+xkXF00gB/YUp0CEVcRAL9uQ8HTZa3S2T/jTISMc1ZjilM0A==}
+    peerDependencies:
+      '@vue/composition-api': ^1.1.0
+      vue: ^2.6.0 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      '@vueuse/shared': 7.4.1_vue@3.2.26
+      vue: 3.2.26
+      vue-demi: 0.12.1_vue@3.2.26
+    dev: true
+
+  /@vueuse/shared/7.4.1_vue@3.2.26:
+    resolution: {integrity: sha512-Pzb7XoHIcgPwwBJ5Ow9lZb0HTDyaLDV3pgxKauPGTMN9qvEylG06kUG+VTjJXkPsRtiGu46di8XyFeMw2dongA==}
+    peerDependencies:
+      '@vue/composition-api': ^1.1.0
+      vue: ^2.6.0 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      vue: 3.2.26
+      vue-demi: 0.12.1_vue@3.2.26
+    dev: true
 
   /@xmldom/xmldom/0.7.5:
     resolution: {integrity: sha512-V3BIhmY36fXZ1OtVcI9W+FxQqxVLsPKcNjWigIaa81dLC9IolJl5Mt4Cvhmr0flUnjSpTdrbMTSbXqYqV5dT6A==}
@@ -7601,7 +7636,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.26
-    dev: false
 
   /vue-eslint-parser/8.0.1_eslint@8.5.0:
     resolution: {integrity: sha512-lhWjDXJhe3UZw2uu3ztX51SJAPGPey1Tff2RK3TyZURwbuI4vximQLzz4nQfCv8CZq4xx7uIiogHMMoSJPr33A==}

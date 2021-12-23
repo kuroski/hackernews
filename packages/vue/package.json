@@ -44,6 +44,8 @@
     "@babel/core": "^7.0.0-0",
     "@kuroski-hackernews/mocks": "workspace:*",
     "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.12",
+    "@vueuse/core": "^7.4.1",
     "babel-jest": "^27.3.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
