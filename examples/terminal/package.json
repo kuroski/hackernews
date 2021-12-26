@@ -15,6 +15,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts src/cli.ts --format cjs,esm --dts --minify --sourcemap --clean",
+    "dev": "tsup src/cli.ts --format cjs --clean --watch",
     "test": "jest",
     "test:ci": "jest --ci",
     "watch": "npm run build -- --watch src"
@@ -24,6 +25,7 @@
     "@kuroski-hackernews/framework": "workspace:*",
     "@kuroski-hackernews/mocks": "workspace:*",
     "@types/clear": "^0.1.2",
+    "@types/cli-table": "^0.3.0",
     "@types/faker": "^5.5.9",
     "@types/figlet": "^1.5.4",
     "@types/jest": "^27.0.3",
