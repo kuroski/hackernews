@@ -2,21 +2,11 @@
 
 import chalk from "chalk";
 import clear from "clear";
-import figlet from "figlet";
 import { Option, program } from "commander";
 import topStoriesCommand from "./commands/topStoriesCommand";
 
 clear();
-console.log(
-  chalk.magenta(
-    figlet.textSync("hackernews", {
-      font: "Isometric1",
-      horizontalLayout: "default",
-      verticalLayout: "default",
-      whitespaceBreak: true,
-    })
-  )
-);
+console.log(chalk.magenta("hackernews"));
 
 program.version("1.0.0").description("A CLI to make floor plan recognition");
 
