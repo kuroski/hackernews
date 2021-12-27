@@ -1,6 +1,6 @@
 # Hackernews - Next.js implementation
 
-![mov]("../assets/next.mov")
+https://github.com/kuroski/hackernews/blob/main/assets/next.mov
 
 This repo makes use of:
 
