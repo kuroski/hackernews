@@ -1,6 +1,6 @@
 # Hackernews - Terminal implementation
 
-![mov]("https://github.com/kuroski/hackernews/blob/main/assets/terminal.gif")
+![mov](https://raw.githubusercontent.com/kuroski/hackernews/main/assets/terminal.gif)
 
 This repo makes use of:
 
