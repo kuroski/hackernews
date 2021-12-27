@@ -1,35 +1,33 @@
-# vue3
+# Hackernews - Vue 3 implementation
 
-This template should help get you started developing with Vue 3 in Vite.
+![mov]("../assets/vue3.mov")
 
-## Recommended IDE Setup
+This repo makes use of:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur).
+- `@kuroski-hackernews/framework`
+- `@kuroski-hackernews/vue`
+- `vue-remote-data`
+- `@devexperts/remote-data-ts`
+- `fp-ts` ecossystem
 
-## Type Support for `.vue` Imports in TS
+No hard business rules are implemented.
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates.
+To make things simpler, all relevant code is within one file in `App.vue`.
 
-However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can run `Volar: Switch TS Plugin on/off` from VSCode command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## 1. Install
 
 ```sh
-npm install
+pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+## 2. Dev environment
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## 3. Build the application
 
 ```sh
-npm run build
+pnpm build
 ```
