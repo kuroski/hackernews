@@ -1,13 +1,22 @@
-Soon I will add some explanation on this project =D
-As an overview, this project is:
+# Hackernews PoC
 
-> A PoC by trying to build a decoupled FE application by attempting to be as strict as possible and non dependant of a framework by making heavy usage of what I'm learning about FP (thanks fp-ts ecosystem).
+This is a study project, my main goal is:
+
+> To build a strict and decoupled FE application while validating FP concepts I'm studying.
+
+## Motivation
+
+After a friend showed me some ideas he was trying to implement on his company, I got inspired and decided to build this project as a challenge on doing my own implementation on the concepts I saw.
+
+I'm working with FE for a while right now and
+
+## TODO:
 
 - [x] Create basic framework structure
 - [x] Create first example using next
 - [x] Create the monorepo structure
 - [x] Create different framework usage example (with Vue)
-- [ ] Create terminal usage example
-- [ ] Document repo
+- [x] Create basic terminal usage example
+- [x] Document repo
 - [ ] Write article
 - [ ] Create cache system

@@ -1,6 +1,6 @@
 # Hackernews - Vue 3 implementation
 
-![mov]("../assets/vue3.mov")
+![mov]("https://github.com/kuroski/hackernews/blob/main/assets/vue3.gif")
 
 This repo makes use of:
 
